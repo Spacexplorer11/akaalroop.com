@@ -95,7 +95,7 @@ onMount(async () => {
 		color: rgb(223, 99, 0);
 		min-height: 100vh;
 		text-align: center;
-		font-size: larger;
+		font-size: x-large;
 	}
 
 	.text {

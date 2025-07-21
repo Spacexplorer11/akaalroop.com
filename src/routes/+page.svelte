@@ -39,7 +39,7 @@
 		<p><span class="text">It was my dream to own this domain, and now I do &lt;3!</span></p>
 	</Typewriter>
 	<div id="project-carousel">
-		<Typewriter delay="5500" interval="30">
+		<Typewriter delay="3200" interval="30">
 			<p><span class="text">I've done quite a few projects! Here they are! ↓</span></p>
 		</Typewriter>
 		{#if projects.length}
@@ -61,7 +61,7 @@
 			</div>
 		{/if}
 	</div>
-	<Typewriter delay="6500" interval="30" mode="cascade" on:done={starText=true}>
+	<Typewriter delay="4500" interval="30" mode="cascade" on:done={starText=true}>
 		<p><span class="text">I hope you like them!</span></p>
 		<p><span class="text">These projects are actually updated straight from Github! Go give them a star and see them update here!</span>
 		</p>

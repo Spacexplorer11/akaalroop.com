@@ -6,11 +6,11 @@
 	export const projectRepos = writable(["akaalroop.com", "meow_meals", "space_dodge", "word_ban", "trafalgar-to-trenches", "cloudcat", "supercalculator"]);
 
 	let projects = [];
-	let currentIndex = 0;
 	let starText = false;
 	let afterStarTextClick = false;
 	let showModal = false;
 
+	let interval;
 	onMount(async () => {
 		const $repos = await new Promise(resolve => projectRepos.subscribe(resolve)) || [];
 		const res = await fetch(`https://api.akaalroop.com/projects?repos=${$repos.join(",")}`);
@@ -26,7 +26,10 @@
 		};
 
 		document.addEventListener("visibilitychange", handler);
-		return () => document.removeEventListener("visibilitychange", handler);
+		return () => {
+			document.removeEventListener("visibilitychange", handler);
+			clearInterval(interval);
+		};
 	});
 </script>
 <div id="content">
@@ -40,23 +43,21 @@
 			<p><span class="text">I've done quite a few projects! Here they are! ↓</span></p>
 		</Typewriter>
 		{#if projects.length}
-			<div class="carousel">
-				<button on:click={() => currentIndex = (currentIndex - 1 + projects.length) % projects.length}>⟨
-				</button>
-
-				<div class="project" role="button" tabindex="0"
-				     on:keydown={(e) => (e.key === "Enter" || e.key === " ") && e.target.click()}>
-					<h2>{projects[currentIndex].name}</h2>
-					<p>{projects[currentIndex].description}</p>
-					<p>⭐ {projects[currentIndex].stars}</p>
-					<a href={projects[currentIndex].html_url} target="_blank" on:click={() => {
-		if (starText) {
-			afterStarTextClick = true;
-		}
-		}}>View on GitHub</a>
+			<div class="scroll-container">
+				<div class="scrolling-carousel">
+					{#each [...projects, ...projects] as project}
+						<div class="project">
+							<h2>{project.name}</h2>
+							<p>{project.description}</p>
+							<p>⭐ {project.stars}</p>
+							<a href={project.html_url} target="_blank" on:click={() => {
+								if (starText) {
+									afterStarTextClick = true;
+								}
+							}}>View on GitHub</a>
+						</div>
+					{/each}
 				</div>
-
-				<button on:click={() => currentIndex = (currentIndex + 1) % projects.length}>⟩</button>
 			</div>
 		{/if}
 	</div>
@@ -108,21 +109,14 @@
 		border-radius: 0.5em; /* optional: rounded corners */
 	}
 
-	.carousel {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 1rem;
-		margin-top: 1rem;
-	}
-
 	.project {
 		background-color: rgba(0, 0, 0, 0.7);
 		border-radius: 0.5em;
 		padding: 1em;
 		color: white;
-		width: 250px;
+		max-width: 300px;
 		text-align: center;
+		flex: 0 0 auto;
 	}
 
 	button {
@@ -162,5 +156,26 @@
 		max-width: 90%;
 		width: 300px;
 		text-align: center;
+	}
+
+	.scroll-container {
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.scrolling-carousel {
+		display: flex;
+		gap: 2rem;
+		min-width: max-content;
+		animation: scroll-left 30s linear infinite;
+	}
+
+	@keyframes scroll-left {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
 	}
 </style>

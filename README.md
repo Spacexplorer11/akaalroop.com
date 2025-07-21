@@ -37,6 +37,7 @@ You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
 -->
-This is my personal profile page! It's made with Svelte and for the [Smelt YSWS from Hack Club.](https://smelt.hackclub.com)  
+This is my personal profile page! It's made with Svelte and for
+the [Smelt YSWS from Hack Club.](https://smelt.hackclub.com)  
 ![Hackatime](https://hackatime-badge.hackclub.com/U08D22QNUVD/akaalroop.com)  
 Btw, it has some easter eggs, so try to find them!

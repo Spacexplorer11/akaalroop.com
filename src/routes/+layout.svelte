@@ -1,4 +1,9 @@
+<script>
+	import {Menu} from "$lib";
+</script>
+
 <div id="national-park">
+	<Menu/>
 	<slot/>
 </div>
 <style>

@@ -53,8 +53,4 @@
 		font-weight: 600;
 		font-style: normal;
 	}
-
-	#container.active_menu {
-		margin-right: 23vw;
-	}
 </style>

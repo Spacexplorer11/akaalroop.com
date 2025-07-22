@@ -53,49 +53,4 @@
 		padding: 0.5em 0.5em;
 		border-radius: 0.5em; /* optional: rounded corners */
 	}
-
-	/* 🍔 Slide-in menu */
-	#menu {
-		position: fixed;
-		top: 0;
-		right: -23vw;
-		width: 20vw;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.9);
-		color: white;
-		z-index: 200;
-		transition: right 0.3s ease-in-out;
-		padding: 2rem 1rem;
-		display: flex;
-		flex-direction: column;
-		gap: 1.2rem;
-	}
-
-	#menu nav {
-		display: flex;
-		flex-direction: column;
-	}
-
-	/* ✅ Active state */
-	#menu.active {
-		right: 0;
-	}
-
-	/* 🔥 Highlight current page */
-	#menu a {
-		text-decoration: none;
-		color: white;
-		font-size: 1.1rem;
-		transition: color 0.3s ease;
-	}
-
-	#menu a.active-link {
-		font-weight: bold;
-		color: #5865F2; /* Discord blurple 💜 */
-	}
-
-	#menu a.active-link::before {
-		content: '| ';
-		color: #5865F2;
-	}
 </style>

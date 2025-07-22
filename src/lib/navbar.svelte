@@ -34,4 +34,9 @@
 		font-size: 1.5rem;
 		font-weight: 600;
 	}
+
+	#items a:hover {
+		text-decoration-line: overline;
+		color: rgb(223, 99, 0);
+	}
 </style>

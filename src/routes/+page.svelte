@@ -61,7 +61,7 @@
 			</div>
 		{/if}
 	</div>
-	<Typewriter delay="4500" interval="30" mode="cascade" on:done={starText=true}>
+	<Typewriter delay="4500" interval="30" mode="cascade" on:done={() => starText=true}>
 		<p><span class="text">I hope you like them!</span></p>
 		<p><span class="text">These projects are actually updated straight from Github! Go give them a star and see them update here!</span>
 		</p>

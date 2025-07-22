@@ -37,3 +37,13 @@
 		<a href="{base}/">Home</a>
 	</nav>
 </div>
+
+<style>
+	#hamburger-toggle {
+		color: orange;
+		background-color: rgba(0, 0, 0, 0.7); /* black with 70% opacity */
+		display: inline-block; /* shrink to fit text width */
+		padding: 0.5em 0.5em;
+		border-radius: 0.5em; /* optional: rounded corners */
+	}
+</style>

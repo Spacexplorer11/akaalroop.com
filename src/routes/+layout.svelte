@@ -1,4 +1,9 @@
+<script>
+	import {Navbar} from "$lib";
+</script>
+
 <div id="national-park">
+	<Navbar/>
 	<slot/>
 </div>
 <style>

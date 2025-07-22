@@ -3,7 +3,7 @@
 	import {base} from '$app/paths';
 
 	function toggleMenu() {
-		const menu = document.getElementById("hamburger-menu");
+		const menu = document.getElementById("menu");
 		const container = document.getElementById("container");
 
 
@@ -29,17 +29,17 @@
 	}
 </script>
 
-<button id="hamburger-toggle" on:click={toggleMenu}>☰</button>
+<button id="toggle" on:click={toggleMenu}>☰</button>
 
 <!-- 🍔 Slide-in Menu -->
-<div id="hamburger-menu">
+<div id="menu">
 	<nav>
 		<a href="{base}/">Home</a>
 	</nav>
 </div>
 
 <style>
-	#hamburger-toggle {
+	#toggle {
 		color: orange;
 		background-color: rgba(0, 0, 0, 0.7); /* black with 70% opacity */
 		display: inline-block; /* shrink to fit text width */

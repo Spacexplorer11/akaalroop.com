@@ -17,4 +17,17 @@
 		font-weight: 600;
 		font-style: normal;
 	}
+
+	:global(html, body) {
+		background-image: url(/images/home-background.webp);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		width: 100%;
+		overscroll-behavior: none;
+	}
 </style>

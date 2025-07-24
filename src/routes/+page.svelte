@@ -32,16 +32,14 @@
 		};
 	});
 </script>
-<div id="content">
-	<Typewriter interval="30" mode="cascade">
-		<h1><span class="text">Hi! Welcome to Akaalroop.com</span></h1>
-		<p><span class="text">This is my website!</span></p>
-		<p><span class="text">It was my dream to own this domain, and now I do &lt;3!</span></p>
-	</Typewriter>
+<div class="flex flex-col p-20px min-h-screen text-center text-orange-500">
+	<h1 class="text-5xl"><span class="typing-text">Hi! Welcome to Akaalroop.com</span></h1>
+	<p class="text-3xl"><span class="typing-text" style="animation-delay: 1.3s;">This is my website!</span></p>
+	<p class="text-3xl"><span class="typing-text" style="animation-delay: 2.2s;">It was my dream to own this domain, and now I do &lt;3!</span>
+	</p>
 	<div id="project-carousel">
-		<Typewriter delay="3200" interval="30">
-			<p><span class="text">I've done quite a few projects! Here they are! ↓</span></p>
-		</Typewriter>
+		<p class="text-3xl"><span class="typing-text" style="animation-delay: 3.5s;">I've done quite a few projects! Here they are! ↓</span>
+		</p>
 		{#if projects.length}
 			<div class="scroll-container">
 				<div class="scrolling-carousel">

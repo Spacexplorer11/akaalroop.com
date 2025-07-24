@@ -2,3 +2,31 @@
 
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@tailwind utilities;
+
+.typing-text {
+    display: inline-block;
+    padding: 0.5em 0.5em;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 0.5em;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: fit-content;
+
+    width: 0;
+    visibility: hidden;
+    animation: typing 2s steps(30, end) forwards;
+}
+
+/* Keyframes defined here too */
+@keyframes typing {
+    from {
+        width: 0;
+        visibility: hidden;
+    }
+    to {
+        width: 100%;
+        visibility: visible;
+    }
+}

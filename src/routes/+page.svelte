@@ -42,7 +42,8 @@
 	});
 </script>
 
-<div class="p-20px @container mt-10 mb-10 flex min-h-screen flex-col text-center text-orange-500">
+-<div class="p-20px @container mt-10 mb-10 flex min-h-screen flex-col text-center text-orange-500">
++<div class="p-5 @container mt-10 mb-10 flex min-h-screen flex-col text-center text-orange-500">
 	<h1><span class="typing-text">Hi! Welcome to Akaalroop.com</span></h1>
 	<p>
 		<span class="typing-text" style="animation-delay: 1.3s;">This is my website!</span>

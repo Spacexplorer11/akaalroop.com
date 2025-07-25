@@ -44,19 +44,19 @@
 
 -<div class="p-20px @container mt-10 mb-10 flex min-h-screen flex-col text-center text-orange-500">
 +<div class="p-5 @container mt-10 mb-10 flex min-h-screen flex-col text-center text-orange-500">
-	<h1><span class="typing-text">Hi! Welcome to Akaalroop.com</span></h1>
+	<h1><span class="typing-text typing-text-3">Hi! Welcome to Akaalroop.com</span></h1>
 	<p>
-		<span class="typing-text" style="animation-delay: 1.3s;">This is my website!</span>
+		<span class="typing-text typing-text-1">This is my website!</span>
 	</p>
 	<p>
-		<span class="typing-text" style="animation-delay: 2.2s;"
+		<span class="typing-text typing-text-2"
 		>It was my dream to own this domain, and now I do &lt;3!</span
 		>
 	</p>
 	<div class="@container/project-carousel">
 		<p>
-			<span class="typing-text"
-			      style="animation-delay: 3.5s;">I've done quite a few projects! Here they are! ↓</span>
+			<span class="typing-text typing-text-3"
+			      I've done quite a few projects! Here they are! ↓</span>
 		</p>
 		{#if projects.length}
 			<div class="@container/scroll-container w-full overflow-hidden">
@@ -82,9 +82,9 @@
 			</div>
 		{/if}
 	</div>
-	<p><span class="typing-text" style="animation-delay: 4.3s;">I hope you like them!</span></p>
+	<p><span class="typing-text typing-text-4">I hope you like them!</span></p>
 	<p>
-		<span class="typing-text" style="animation-delay: 4.6s;"
+		<span class="typing-text typing-text-5"
 			>These projects are actually updated straight from Github! Go give them a star and see them update here!</span
 		>
 	</p>

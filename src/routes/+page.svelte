@@ -1,9 +1,16 @@
 <script>
-	import Typewriter from 'svelte-typewriter'
-	import {onMount, tick} from 'svelte';
-	import {writable} from 'svelte/store';
+	import {onMount, tick} from "svelte";
+	import {writable} from "svelte/store";
 
-	export const projectRepos = writable(["akaalroop.com", "meow_meals", "space_dodge", "word_ban", "trafalgar-to-trenches", "cloudcat", "supercalculator"]);
+	export const projectRepos = writable([
+		"akaalroop.com",
+		"meow_meals",
+		"space_dodge",
+		"word_ban",
+		"trafalgar-to-trenches",
+		"cloudcat",
+		"supercalculator"
+	]);
 
 	let projects = [];
 	let starText = false;
@@ -12,7 +19,7 @@
 
 	let interval;
 	onMount(async () => {
-		const $repos = await new Promise(resolve => projectRepos.subscribe(resolve)) || [];
+		const $repos = (await new Promise((resolve) => projectRepos.subscribe(resolve))) || [];
 		const res = await fetch(`https://api.akaalroop.com/projects?repos=${$repos.join(",")}`);
 		projects = await res.json();
 
@@ -32,63 +39,81 @@
 		};
 	});
 </script>
-<div class="flex flex-col p-20px min-h-screen text-center text-orange-500">
-	<h1 class="text-5xl"><span class="typing-text">Hi! Welcome to Akaalroop.com</span></h1>
-	<p class="text-3xl"><span class="typing-text" style="animation-delay: 1.3s;">This is my website!</span></p>
-	<p class="text-3xl"><span class="typing-text" style="animation-delay: 2.2s;">It was my dream to own this domain, and now I do &lt;3!</span>
+
+<div class="p-20px @container mt-10 mb-10 flex min-h-screen flex-col text-center text-orange-500">
+	<h1><span class="typing-text">Hi! Welcome to Akaalroop.com</span></h1>
+	<p>
+		<span class="typing-text" style="animation-delay: 1.3s;">This is my website!</span>
 	</p>
-	<div id="project-carousel">
-		<p class="text-3xl"><span class="typing-text" style="animation-delay: 3.5s;">I've done quite a few projects! Here they are! ↓</span>
+	<p>
+		<span class="typing-text" style="animation-delay: 2.2s;"
+		>It was my dream to own this domain, and now I do &lt;3!</span
+		>
+	</p>
+	<div class="@container/project-carousel">
+		<p>
+			<span class="typing-text"
+			      style="animation-delay: 3.5s;">I've done quite a few projects! Here they are! ↓</span>
 		</p>
 		{#if projects.length}
-			<div class="scroll-container">
-				<div class="scrolling-carousel">
+			<div class="@container/scroll-container">
+				<div class="@container/scrolling-carousel">
 					{#each [...projects, ...projects] as project}
-						<div class="project">
+						<div class="@container/project">
 							<h2>{project.name}</h2>
 							<p>{project.description}</p>
 							<p>⭐ {project.stars}</p>
-							<a href={project.html_url} target="_blank" on:click={() => {
-								if (starText) {
-									afterStarTextClick = true;
-								}
-							}}>View on GitHub</a>
+							<a
+									href={project.html_url}
+									target="_blank"
+									on:click={() => {
+									if (starText) {
+										afterStarTextClick = true;
+									}
+								}}>View on GitHub</a
+							>
 						</div>
 					{/each}
 				</div>
 			</div>
 		{/if}
 	</div>
-	<Typewriter delay="4500" interval="30" mode="cascade" on:done={() => starText=true}>
-		<p><span class="text">I hope you like them!</span></p>
-		<p><span class="text">These projects are actually updated straight from Github! Go give them a star and see them update here!</span>
+	<p><span class="typing-text">I hope you like them!</span></p>
+	<p>
+			<span class="typing-text"
+			>These projects are actually updated straight from Github! Go give them a star and see them update here!</span
+			>
 		</p>
-	</Typewriter>
 	{#if showModal}
 		<div
-				class="modal-overlay"
+				class="@container/modal-overlay"
 				role="button"
 				tabindex="0"
-				on:click={() => showModal = false}
-				on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}>
+				on:click={() => (showModal = false)}
+				on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+		>
 			<div
-					id="modal-content"
-					class="modal-content"
+					class="@container/modal-content"
 					role="dialog"
 					aria-modal="true"
 					aria-label="Modal dialog"
 					tabindex="0"
 					on:click|stopPropagation
-					on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}>
+					on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+			>
 				<h2>Thanks!</h2>
 				<p>The stats will only update every hour, so you will see the update but later!</p>
-				<button on:click={() => showModal = false}
-				        on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}>
-					<span class="text">Thanks for the star!</span></button>
+				<button
+						on:click={() => (showModal = false)}
+						on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+				>
+					<span class="text">Thanks for the star!</span></button
+				>
 			</div>
 		</div>
 	{/if}
 </div>
+
 <style>
 	#content {
 		display: flex;

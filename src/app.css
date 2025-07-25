@@ -6,27 +6,56 @@
 @tailwind utilities;
 
 .typing-text {
-    display: inline-block;
-    padding: 0.5em 0.5em;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 0.5em;
-    overflow: hidden;
-    white-space: nowrap;
-    max-width: fit-content;
+	display: inline-block;
+	padding: 0.5em 0.5em;
+	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 0.5em;
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: fit-content;
 
-    width: 0;
-    visibility: hidden;
-    animation: typing 2s steps(30, end) forwards;
+	width: 0;
+	visibility: hidden;
+	animation: typing 2s steps(30, end) forwards;
 }
 
 /* Keyframes defined here too */
 @keyframes typing {
-    from {
-        width: 0;
-        visibility: hidden;
-    }
-    to {
-        width: 100%;
-        visibility: visible;
-    }
+	from {
+		width: 0;
+		visibility: hidden;
+	}
+	to {
+		width: 100%;
+		visibility: visible;
+	}
+}
+
+html, body {
+	background-image: url(/images/home-background.webp);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	height: 100%;
+	width: 100%;
+	overscroll-behavior: none;
+	font-family: "National Park", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+}
+
+@layer base {
+	p {
+		font-size: var(--text-2xl);
+	}
+
+	h1 {
+		font-size: var(--text-4xl);
+	}
+
+	h2 {
+		font-size: var(--text-3xl);
+	}
 }

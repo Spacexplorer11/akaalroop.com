@@ -31,7 +31,8 @@
 	}
 }
 
-html, body {
+html,
+body {
 	background-image: url(/images/home-background.webp);
 	background-size: cover;
 	background-position: center;

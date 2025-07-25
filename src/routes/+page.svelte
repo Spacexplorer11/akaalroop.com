@@ -56,10 +56,10 @@
 			      style="animation-delay: 3.5s;">I've done quite a few projects! Here they are! ↓</span>
 		</p>
 		{#if projects.length}
-			<div class="@container/scroll-container">
+			<div class="@container/scroll-container flex flex-row">
 				<div class="@container/scrolling-carousel">
 					{#each [...projects, ...projects] as project}
-						<div class="@container/project">
+						<div class="@container/project bg-black/70">
 							<h2>{project.name}</h2>
 							<p>{project.description}</p>
 							<p>⭐ {project.stars}</p>
@@ -80,10 +80,10 @@
 	</div>
 	<p><span class="typing-text">I hope you like them!</span></p>
 	<p>
-			<span class="typing-text"
+		<span class="typing-text"
 			>These projects are actually updated straight from Github! Go give them a star and see them update here!</span
-			>
-		</p>
+		>
+	</p>
 	{#if showModal}
 		<div
 				class="@container/modal-overlay"

@@ -1,7 +1,7 @@
 <script>
 	import "../app.css";
-	import {Navbar} from "$lib";
+	import { Navbar } from "$lib";
 </script>
 
-<Navbar/>
-<slot/>
+<Navbar />
+<slot />

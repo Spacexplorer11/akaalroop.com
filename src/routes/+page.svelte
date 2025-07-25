@@ -61,12 +61,14 @@
 			<div class="@container/scroll-container w-full overflow-hidden">
 				<div class="@container/scrolling-carousel flex min-w-max animate-[scroll-left_10s_linear_infinite]">
 					{#each [...projects, ...projects] as project}
-						<div class="@container/project bg-black/70 rounded-2xl p-4 text-white w-[20rem] flex-shrink-0 break-words text-center mx-5">
+						<div
+								class="@container/project mx-5 w-[20rem] flex-shrink-0 rounded-2xl bg-black/70 p-4 text-center break-words text-white"
+						>
 							<h2>{project.name}</h2>
 							<p>{project.description}</p>
 							<p>⭐ {project.stars}</p>
 							<a
-									class="text-orange-500 hover:underline hover:text-orange-600"
+									class="text-orange-500 hover:text-orange-600 hover:underline"
 									href={project.html_url}
 									target="_blank"
 									on:click={() => {
@@ -112,9 +114,11 @@
 						on:click={() => (showModal = false)}
 						on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
 				>
-					<span class="bg-black/70 inline-block p-2 rounded-b-lg cursor-pointer select-none transform hover:transform-[scale(1.2)]">Thanks for the star!</span>
-				</button
-				>
+					<span
+							class="inline-block transform cursor-pointer rounded-b-lg bg-black/70 p-2 select-none hover:transform-[scale(1.2)]"
+					>Thanks for the star!</span
+					>
+				</button>
 			</div>
 		</div>
 	{/if}

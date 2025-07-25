@@ -112,26 +112,10 @@
 						on:click={() => (showModal = false)}
 						on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
 				>
-					<span class="bg-black/70 inline-block p-2 rounded-b-lg">Thanks for the star!</span></button
+					<span class="bg-black/70 inline-block p-2 rounded-b-lg cursor-pointer select-none transform hover:transform-[scale(1.2)]">Thanks for the star!</span>
+				</button
 				>
 			</div>
 		</div>
 	{/if}
 </div>
-
-<style>
-
-	button {
-		background: none;
-		border: none;
-		color: rgb(223, 99, 0);
-		font-size: 2rem;
-		cursor: pointer;
-		user-select: none;
-		transition: transform 0.2s ease;
-	}
-
-	button:hover {
-		transform: scale(1.2);
-	}
-</style>

@@ -52,20 +52,21 @@
 		>It was my dream to own this domain, and now I do &lt;3!</span
 		>
 	</p>
-	<div class="project-carousel">
+	<div class="@container/project-carousel">
 		<p>
 			<span class="typing-text"
 			      style="animation-delay: 3.5s;">I've done quite a few projects! Here they are! ↓</span>
 		</p>
 		{#if projects.length}
-			<div class="scroll-container">
-				<div class="scrolling-carousel">
+			<div class="@container/scroll-container w-full overflow-hidden">
+				<div class="@container/scrolling-carousel flex min-w-max animate-[scroll-left_30s_linear_infinite]">
 					{#each [...projects, ...projects] as project}
-						<div class="project flex-initial">
+						<div class="@container/project bg-black/70 rounded-2xl p-4 text-white w-[20rem] flex-shrink-0 break-words text-center mx-5">
 							<h2>{project.name}</h2>
 							<p>{project.description}</p>
 							<p>⭐ {project.stars}</p>
 							<a
+									class="text-orange-500 hover:underline hover:text-orange-600"
 									href={project.html_url}
 									target="_blank"
 									on:click={() => {
@@ -111,7 +112,7 @@
 						on:click={() => (showModal = false)}
 						on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
 				>
-					<span class="text">Thanks for the star!</span></button
+					<span class="bg-black/70 inline-block p-2 rounded-b-lg">Thanks for the star!</span></button
 				>
 			</div>
 		</div>
@@ -119,11 +120,14 @@
 </div>
 
 <style>
-	.text {
-		background-color: rgba(0, 0, 0, 0.7); /* black with 70% opacity */
-		display: inline-block; /* shrink to fit text width */
-		padding: 0.5em 0.5em;
-		border-radius: 0.5em; /* optional: rounded corners */
+
+	@keyframes scroll-left {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
 	}
 
 	button {

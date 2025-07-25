@@ -47,42 +47,6 @@ body {
 	font-style: normal;
 }
 
-.scroll-container {
-	width: 100%;
-	overflow: hidden;
-}
-
-.scrolling-carousel {
-	display: flex;
-	gap: 2rem;
-	min-width: max-content;
-	animation: scroll-left 30s linear infinite;
-}
-
-@keyframes scroll-left {
-	0% {
-		transform: translateX(0);
-	}
-	100% {
-		transform: translateX(-50%);
-	}
-}
-
-.project {
-	background-color: rgba(0, 0, 0, 0.7);
-	border-radius: 0.5em;
-	padding: 1em;
-	color: white;
-	max-width: 300px;
-	text-align: center;
-	flex: 0 0 auto;
-}
-
-.project a {
-	color: orange;
-	text-decoration: underline;
-}
-
 @layer base {
 	p {
 		font-size: var(--text-2xl);

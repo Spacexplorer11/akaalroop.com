@@ -22,7 +22,9 @@
 		const $repos = (await new Promise((resolve) => projectRepos.subscribe(resolve))) || [];
 		const res = await fetch(`https://api.akaalroop.com/projects?repos=${$repos.join(",")}`);
 		projects = await res.json();
-
+		setTimeout(() => {
+			starText = true;
+		}, 6000);
 		const handler = async () => {
 			if (document.visibilityState === "visible" && afterStarTextClick) {
 				showModal = true;
@@ -50,16 +52,16 @@
 		>It was my dream to own this domain, and now I do &lt;3!</span
 		>
 	</p>
-	<div class="@container/project-carousel">
+	<div class="project-carousel">
 		<p>
 			<span class="typing-text"
 			      style="animation-delay: 3.5s;">I've done quite a few projects! Here they are! ↓</span>
 		</p>
 		{#if projects.length}
-			<div class="@container/scroll-container flex flex-row">
-				<div class="@container/scrolling-carousel">
+			<div class="scroll-container">
+				<div class="scrolling-carousel">
 					{#each [...projects, ...projects] as project}
-						<div class="@container/project bg-black/70">
+						<div class="project flex-initial">
 							<h2>{project.name}</h2>
 							<p>{project.description}</p>
 							<p>⭐ {project.stars}</p>
@@ -78,22 +80,23 @@
 			</div>
 		{/if}
 	</div>
-	<p><span class="typing-text">I hope you like them!</span></p>
+	<p><span class="typing-text" style="animation-delay: 4.3s;">I hope you like them!</span></p>
 	<p>
-		<span class="typing-text"
+		<span class="typing-text" style="animation-delay: 4.6s;"
 			>These projects are actually updated straight from Github! Go give them a star and see them update here!</span
 		>
 	</p>
 	{#if showModal}
 		<div
-				class="@container/modal-overlay"
+				class="@container/modal-overlay fixed inset-0 z-999 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"
 				role="button"
 				tabindex="0"
 				on:click={() => (showModal = false)}
 				on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
 		>
 			<div
-					class="@container/modal-content"
+					id="modal-content"
+					class="@container/modal-content mb-5 w-xs max-w-full rounded-b-lg bg-black/80 p-8 text-center text-orange-500 shadow-[0_0_20px_rgba(0,0,0,0.3)]"
 					role="dialog"
 					aria-modal="true"
 					aria-label="Modal dialog"
@@ -104,6 +107,7 @@
 				<h2>Thanks!</h2>
 				<p>The stats will only update every hour, so you will see the update but later!</p>
 				<button
+						class="mt-3 text-red-600"
 						on:click={() => (showModal = false)}
 						on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
 				>
@@ -115,31 +119,11 @@
 </div>
 
 <style>
-	#content {
-		display: flex;
-		flex-direction: column;
-		padding: 20px;
-		color: rgb(223, 99, 0);
-		min-height: 100vh;
-		text-align: center;
-		font-size: x-large;
-	}
-
 	.text {
 		background-color: rgba(0, 0, 0, 0.7); /* black with 70% opacity */
 		display: inline-block; /* shrink to fit text width */
 		padding: 0.5em 0.5em;
 		border-radius: 0.5em; /* optional: rounded corners */
-	}
-
-	.project {
-		background-color: rgba(0, 0, 0, 0.7);
-		border-radius: 0.5em;
-		padding: 1em;
-		color: white;
-		max-width: 300px;
-		text-align: center;
-		flex: 0 0 auto;
 	}
 
 	button {
@@ -154,51 +138,5 @@
 
 	button:hover {
 		transform: scale(1.2);
-	}
-
-	.modal-overlay {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		background: rgba(0, 0, 0, 0.4);
-		backdrop-filter: blur(6px);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		z-index: 999;
-	}
-
-	.modal-content {
-		background: rgba(0, 0, 0, 0.8);
-		color: orange;
-		padding: 2rem;
-		border-radius: 0.5rem;
-		box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-		max-width: 90%;
-		width: 300px;
-		text-align: center;
-	}
-
-	.scroll-container {
-		width: 100%;
-		overflow: hidden;
-	}
-
-	.scrolling-carousel {
-		display: flex;
-		gap: 2rem;
-		min-width: max-content;
-		animation: scroll-left 30s linear infinite;
-	}
-
-	@keyframes scroll-left {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(-50%);
-		}
 	}
 </style>

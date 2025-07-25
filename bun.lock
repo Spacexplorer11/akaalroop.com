@@ -5,6 +5,7 @@
       "name": "akaalroop.com",
       "dependencies": {
         "@sveltejs/adapter-static": "^3.0.8",
+        "svelte-typewrite": "^3.0.0",
         "svelte-typewriter": "^3.2.3",
       },
       "devDependencies": {
@@ -305,6 +306,8 @@
     "source-map-js": ["source-map-js@1.2.1", "", {}, "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA=="],
 
     "svelte": ["svelte@5.36.8", "", { "dependencies": { "@ampproject/remapping": "^2.3.0", "@jridgewell/sourcemap-codec": "^1.5.0", "@sveltejs/acorn-typescript": "^1.0.5", "@types/estree": "^1.0.5", "acorn": "^8.12.1", "aria-query": "^5.3.1", "axobject-query": "^4.1.0", "clsx": "^2.1.1", "esm-env": "^1.2.1", "esrap": "^2.1.0", "is-reference": "^3.0.3", "locate-character": "^3.0.0", "magic-string": "^0.30.11", "zimmerframe": "^1.1.2" } }, "sha512-8JbZWQu96hMjH/oYQPxXW6taeC6Awl6muGHeZzJTxQx7NGRQ/J9wN1hkzRKLOlSDlbS2igiFg7p5xyTp5uXG3A=="],
+
+    "svelte-typewrite": ["svelte-typewrite@3.0.0", "", { "peerDependencies": { "svelte": "^5.0.0" } }, "sha512-W+MkV8aV9NOIQdV0F2iP0PcuJUKRK3RlrrU44GOPjWwzlV93PneEdhumvSJuOrKh2lJwHHvNc+FEUg+DtNSf6Q=="],
 
     "svelte-typewriter": ["svelte-typewriter@3.2.3", "", { "dependencies": { "@formatjs/intl-segmenter": "^11.5.3" }, "peerDependencies": { "svelte": ">=3.47.x" } }, "sha512-762k01kIU+IyXfe5f2MEYQ1yIfJZfueAEmJNbO36cxJG56/vciHiWacPQLnSECK/4cvlH/Ll1Mv6B45InMJ1zg=="],
 

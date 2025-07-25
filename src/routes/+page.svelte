@@ -1,6 +1,7 @@
 <script>
 	import {onMount, tick} from "svelte";
 	import {writable} from "svelte/store";
+	import Typewriter from "svelte-typewriter";
 
 	export const projectRepos = writable([
 		"akaalroop.com",
@@ -43,20 +44,24 @@
 </script>
 
 <div class="p-5 @container mt-10 mb-10 flex min-h-screen flex-col text-center text-orange-500">
-	<h1><span class="typing-text">Hi! Welcome to Akaalroop.com</span></h1>
+	<Typewriter mode="cascade">
+	<h1><span class="inline-block p-[0.5em] bg-black/70 rounded-[0.5em] overflow-hidden whitespace-normal max-w-fit">Hi! Welcome to Akaalroop.com</span></h1>
 	<p>
-		<span class="typing-text typing-text-1">This is my website!</span>
+		<span class="inline-block p-[0.5em] bg-black/70 rounded-[0.5em] overflow-hidden whitespace-normal max-w-fit">This is my website!</span>
 	</p>
 	<p>
-		<span class="typing-text typing-text-2"
+		<span class="inline-block p-[0.5em] bg-black/70 rounded-[0.5em] overflow-hidden whitespace-normal max-w-fit"
 		>It was my dream to own this domain, and now I do &lt;3!</span
 		>
 	</p>
+	</Typewriter>
 	<div class="@container/project-carousel">
+		<Typewriter delay="3000">
 		<p>
-			<span class="typing-text typing-text-3">
+			<span class="inline-block p-[0.5em] bg-black/70 rounded-[0.5em] overflow-hidden whitespace-normal max-w-fit">
 			      I've done quite a few projects! Here they are! ↓</span>
 		</p>
+		</Typewriter>
 		{#if projects.length}
 			<div class="@container/scroll-container w-full overflow-hidden">
 				<div class="@container/scrolling-carousel flex min-w-max animate-[scroll-left_10s_linear_infinite]">
@@ -81,12 +86,14 @@
 			</div>
 		{/if}
 	</div>
-	<p><span class="typing-text typing-text-4">I hope you like them!</span></p>
+<Typewriter mode="cascade" delay="4000">
+	<p><span class="inline-block p-[0.5em] bg-black/70 rounded-[0.5em] overflow-hidden whitespace-normal max-w-fit">I hope you like them!</span></p>
 	<p>
-		<span class="typing-text typing-text-5"
+		<span class="inline-block p-[0.5em] bg-black/70 rounded-[0.5em] overflow-hidden whitespace-normal max-w-fit"
 			>These projects are actually updated straight from Github! Go give them a star and see them update here!</span
 		>
 	</p>
+</Typewriter>
 	{#if showModal}
 		<div
 class="@container/modal-overlay fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"

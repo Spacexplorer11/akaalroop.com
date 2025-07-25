@@ -27,6 +27,7 @@
 	},
 	"dependencies": {
 		"@sveltejs/adapter-static": "^3.0.8",
+		"svelte-typewrite": "^3.0.0",
 		"svelte-typewriter": "^3.2.3"
 	}
 }

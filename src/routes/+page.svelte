@@ -112,7 +112,7 @@ class="@container/modal-overlay fixed inset-0 z-50 flex h-screen w-screen items-
 						on:click={() => (showModal = false)}
 						on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
 				>
-					<span class="bg-black/70 inline-block p-2 rounded-b-lg cursor-pointer select-none transform hover:transform-[scale(1.2)]">Thanks for the star!</span>
+					<span class="bg-black/70 inline-block p-2 rounded-b-lg cursor-pointer select-none transform hover:scale-110 transition-transform">Thanks for the star!</span>
 				</button
 				>
 			</div>

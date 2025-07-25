@@ -19,23 +19,23 @@
 }
 
 .typing-text-1 {
-	animation-delay: 1.3s;
+	animation-delay: 1s;
 }
 
 .typing-text-2 {
-	animation-delay: 2.2s;
+	animation-delay: 1.7s;
 }
 
 .typing-text-3 {
-	animation-delay: 3.5s;
+	animation-delay: 2.6s;
 }
 
 .typing-text-4 {
-	animation-delay: 4.3s;
+	animation-delay: 3.3s;
 }
 
 .typing-text-5 {
-	animation-delay: 4.6s;
+	animation-delay: 3.6s;
 }
 
 /* Keyframes defined here too */

@@ -43,7 +43,7 @@
 </script>
 
 <div class="p-5 @container mt-10 mb-10 flex min-h-screen flex-col text-center text-orange-500">
-	<h1><span class="typing-text typing-text-3">Hi! Welcome to Akaalroop.com</span></h1>
+	<h1><span class="typing-text">Hi! Welcome to Akaalroop.com</span></h1>
 	<p>
 		<span class="typing-text typing-text-1">This is my website!</span>
 	</p>

@@ -90,7 +90,7 @@
 	</p>
 	{#if showModal}
 		<div
-				class="@container/modal-overlay fixed inset-0 z-999 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"
+class="@container/modal-overlay fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"
 				role="button"
 				tabindex="0"
 				on:click={() => (showModal = false)}

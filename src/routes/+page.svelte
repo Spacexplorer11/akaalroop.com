@@ -17,12 +17,20 @@
 	let starText = false;
 	let afterStarTextClick = false;
 	let showModal = false;
+	let carouselContainer;
+	let scrollPosition = 0;
 
 	let interval;
 	onMount(async () => {
 		const $repos = (await new Promise((resolve) => projectRepos.subscribe(resolve))) || [];
 		const res = await fetch(`https://api.akaalroop.com/projects?repos=${$repos.join(",")}`);
 		projects = await res.json();
+
+		// Start the smooth scroll animation
+		if (projects.length > 0) {
+			startSmoothScroll();
+		}
+
 		setTimeout(() => {
 			starText = true;
 		}, 6000);
@@ -41,6 +49,26 @@
 			clearInterval(interval);
 		};
 	});
+
+	function startSmoothScroll() {
+		const animate = () => {
+			if (carouselContainer) {
+				scrollPosition -= 4;
+
+				// Get the width of one set of projects
+				const singleSetWidth = carouselContainer.scrollWidth / 2;
+
+				// Reset position when we've scrolled one full set
+				if (Math.abs(scrollPosition) >= singleSetWidth) {
+					scrollPosition = 0;
+				}
+
+				carouselContainer.style.transform = `translateX(${scrollPosition}px)`;
+			}
+			requestAnimationFrame(animate);
+		};
+		requestAnimationFrame(animate);
+	}
 </script>
 
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
@@ -71,7 +99,7 @@
 		</Typewriter>
 		{#if projects.length}
 			<div class="@container/scroll-container w-full overflow-hidden">
-				<div class="@container/scrolling-carousel flex min-w-max animate-[scroll-left_5s_linear_infinite]">
+				<div bind:this={carouselContainer} class="@container/scrolling-carousel flex">
 					{#each [...projects, ...projects] as project}
 						<div
 							class="@container/project mx-5 w-[20rem] flex-shrink-0 rounded-2xl bg-black/70 p-4 text-center break-words text-white"

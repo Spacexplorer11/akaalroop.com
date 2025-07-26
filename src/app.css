@@ -6,8 +6,8 @@
 
 html,
 body {
-	@apply bg-[url(/images/home-background.webp)] bg-cover bg-center bg-no-repeat bg-fixed;
-	@apply m-0 p-0 box-border overflow-x-hidden;
+	@apply bg-[url(/images/home-background.webp)] bg-cover bg-fixed bg-center bg-no-repeat;
+	@apply m-0 box-border overflow-x-hidden p-0;
 	height: 100%;
 	width: 100%;
 	overscroll-behavior: none;
@@ -28,14 +28,5 @@ body {
 
 	h2 {
 		font-size: var(--text-3xl);
-	}
-}
-
-@keyframes scroll-left {
-	0% {
-		transform: translateX(0);
-	}
-	100% {
-		transform: translateX(-50%);
 	}
 }

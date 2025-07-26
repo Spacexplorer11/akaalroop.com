@@ -19,6 +19,7 @@
 	let showModal = false;
 	let carouselContainer;
 	let scrollPosition = 0;
+	const SCROLL_SPEED = 4; // Adjust this value to change the scroll speed
 
 	let interval;
 	onMount(async () => {
@@ -53,7 +54,7 @@
 	function startSmoothScroll() {
 		const animate = () => {
 			if (carouselContainer) {
-				scrollPosition -= 4;
+				scrollPosition -= SCROLL_SPEED;
 
 				// Get the width of one set of projects
 				const singleSetWidth = carouselContainer.scrollWidth / 2;

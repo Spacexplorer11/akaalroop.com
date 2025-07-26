@@ -19,9 +19,10 @@
 	let showModal = false;
 	let carouselContainer;
 	let scrollPosition = 0;
-	const SCROLL_SPEED = 4; // Adjust this value to change the scroll speed
+	const SCROLL_SPEED = 4;
 
-	let interval;
+	let animationFrameId; // Store animation frame ID for cleanup
+
 	onMount(async () => {
 		const $repos = (await new Promise((resolve) => projectRepos.subscribe(resolve))) || [];
 		const res = await fetch(`https://api.akaalroop.com/projects?repos=${$repos.join(",")}`);
@@ -35,6 +36,7 @@
 		setTimeout(() => {
 			starText = true;
 		}, 6000);
+
 		const handler = async () => {
 			if (document.visibilityState === "visible" && afterStarTextClick) {
 				showModal = true;
@@ -47,7 +49,10 @@
 		document.addEventListener("visibilitychange", handler);
 		return () => {
 			document.removeEventListener("visibilitychange", handler);
-			clearInterval(interval);
+			// Properly cleanup animation frame
+			if (animationFrameId) {
+				cancelAnimationFrame(animationFrameId);
+			}
 		};
 	});
 
@@ -66,9 +71,9 @@
 
 				carouselContainer.style.transform = `translateX(${scrollPosition}px)`;
 			}
-			requestAnimationFrame(animate);
+			animationFrameId = requestAnimationFrame(animate);
 		};
-		requestAnimationFrame(animate);
+		animationFrameId = requestAnimationFrame(animate);
 	}
 </script>
 

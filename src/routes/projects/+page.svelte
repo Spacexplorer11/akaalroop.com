@@ -1,8 +1,15 @@
 <script>
 	import Typewriter from "svelte-typewriter";
+	import {projectRepos, projectsClicked} from "$lib/stores/projects.js";
 
-	let yes = false;
-	let no = false;
+	let yes = $state(false);
+	let no = $state(false);
+	let fakeYes = $state(false);
+	let fakeNo = $state(false);
+
+	const projectsNotClicked = $projectRepos.filter(p => !$projectsClicked.has(p));
+	const anyProjectClicked = $projectsClicked.size > 0;
+
 </script>
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
 	<Typewriter mode="cascade">
@@ -12,10 +19,23 @@
 		</p>
 		<div class="@container/button-wrapper flex flex-row space-x-15 items-center justify-center">
 			<button class="inline-block transform cursor-pointer rounded-lg bg-black/70 p-2 transition-transform select-none hover:scale-110 text-2xl"
-			        aria-label="Yes" onclick="{yes = true}">Yes!
+			        aria-label="Yes" onclick={() => {
+					if (anyProjectClicked) {
+						yes = true;
+					}
+					else {
+						fakeYes = true;
+					}
+					}}>Yes!
 			</button>
 			<button class="inline-block transform cursor-pointer rounded-lg bg-black/70 p-2 transition-transform select-none hover:scale-110 text-2xl"
-			        aria-label="No" onclick="{no = true}">No?
+			        aria-label="No" onclick={() => {
+						if (!anyProjectClicked) {
+						no = true;
+					}
+					else {
+						fakeNo = true;
+					}}}>No?
 			</button>
 		</div>
 	</Typewriter>

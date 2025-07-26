@@ -1,35 +1,21 @@
 <script>
 	import { onMount, tick } from "svelte";
-	import { writable } from "svelte/store";
 	import Typewriter from "svelte-typewriter";
+	import {projectsClicked, projects} from "$lib/stores/projects.js";
 
-	export const projectRepos = writable([
-		"akaalroop.com",
-		"meow_meals",
-		"space_dodge",
-		"word_ban",
-		"trafalgar-to-trenches",
-		"cloudcat",
-		"supercalculator"
-	]);
-
-	let projects = [];
 	let starText = false;
 	let afterStarTextClick = false;
-	let showModal = false;
-	let carouselContainer;
+	let showModal = $state(false);
+	let carouselContainer = $state(null);
 	let scrollPosition = 0;
 	const SCROLL_SPEED = 4;
 
 	let animationFrameId; // Store animation frame ID for cleanup
 
 	onMount(async () => {
-		const $repos = (await new Promise((resolve) => projectRepos.subscribe(resolve))) || [];
-		const res = await fetch(`https://api.akaalroop.com/projects?repos=${$repos.join(",")}`);
-		projects = await res.json();
 
 		// Start the smooth scroll animation
-		if (projects.length > 0) {
+		if ($projects.length > 0) {
 			startSmoothScroll();
 		}
 
@@ -103,10 +89,10 @@
 				>
 			</p>
 		</Typewriter>
-		{#if projects.length}
+		{#if $projects.length}
 			<div class="@container/scroll-container w-full overflow-hidden">
 				<div bind:this={carouselContainer} class="@container/scrolling-carousel flex">
-					{#each [...projects, ...projects] as project}
+					{#each [...$projects, ...$projects] as project}
 						<div
 							class="@container/project mx-5 w-[20rem] flex-shrink-0 rounded-2xl bg-black/70 p-4 text-center break-words text-white"
 						>
@@ -117,9 +103,10 @@
 								class="text-orange-500 hover:text-orange-600 hover:underline"
 								href={project.html_url}
 								target="_blank"
-								on:click={() => {
+								onclick={() => {
 									if (starText) {
 										afterStarTextClick = true;
+										$projectsClicked.add(project.name);
 									}
 								}}>View on GitHub</a
 							>
@@ -146,8 +133,8 @@
 			class="@container/modal-overlay fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"
 			role="button"
 			tabindex="0"
-			on:click={() => (showModal = false)}
-			on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+			onclick={() => (showModal = false)}
+			onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
 		>
 			<div
 				id="modal-content"
@@ -156,15 +143,14 @@
 				aria-modal="true"
 				aria-label="Modal dialog"
 				tabindex="0"
-				on:click|stopPropagation
-				on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+				onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
 			>
 				<h2>Thanks!</h2>
 				<p>The stats will only update every hour, so you will see the update but later!</p>
 				<button
 					class="mt-3 text-red-600"
-					on:click={() => (showModal = false)}
-					on:keydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+					onclick={() => (showModal = false)}
+					onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
 				>
 					<span
 						class="inline-block transform cursor-pointer rounded-b-lg bg-black/70 p-2 transition-transform select-none hover:scale-110"

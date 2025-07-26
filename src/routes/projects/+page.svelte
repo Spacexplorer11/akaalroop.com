@@ -1,16 +1,18 @@
 <script>
 	import Typewriter from "svelte-typewriter";
-	import {projectRepos, projectsClicked, projects} from "$lib/stores/projects.js";
+	import {projectsClicked, projects} from "$lib/stores/projects.js";
 
 	let yes = $state(false);
 	let no = $state(false);
 	let fakeYes = $state(false);
 	let fakeNo = $state(false);
 
-	const projectsNotClicked = $projectRepos.filter((p) => !$projectsClicked.has(p));
 	const anyProjectClicked = $projectsClicked.size > 0;
 
-	let randomProject = $state($projects[Math.floor(Math.random() * $projectRepos.length)]);
+	let projectsNotClicked = $projects.filter((p) => !$projectsClicked.has(p));
+	if (projectsNotClicked.length === 0) projectsNotClicked = $projects;
+
+	let randomProject = $state(projectsNotClicked[Math.floor(Math.random() * projectsNotClicked.length)]);
 </script>
 
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
@@ -76,12 +78,18 @@
 							href={randomProject.html_url}
 							aria-label="{randomProject.name} link"
 							title="Link to {randomProject.name}"
-							class="hover:text-orange-600 hover:underline break-words">{randomProject.name}</a
+							class="hover:text-orange-600 hover:underline break-words"
+							onclick="{$projectsClicked.add(randomProject)}"
+							target="_blank">{randomProject.name}</a
 					></span
 			>
 			<button class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
-			        onclick={() => {randomProject = $projects[Math.floor(Math.random() * $projectRepos.length)]}}>Reroll
+			        onclick={() => {randomProject = projectsNotClicked[Math.floor(Math.random() * projectsNotClicked.length)]}}>
+				Reroll
 			</button>
+
+			<!-- TODO: Add fallback if all projects clicked -->
+
 			</p>
 	{/if}
 </div>

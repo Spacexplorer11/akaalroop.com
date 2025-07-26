@@ -8,7 +8,7 @@
 	let showModal = $state(false);
 	let carouselContainer = $state(null);
 	let scrollPosition = 0;
-	const SCROLL_SPEED = 4;
+	const SCROLL_SPEED = 2;
 
 	let animationFrameId; // Store animation frame ID for cleanup
 

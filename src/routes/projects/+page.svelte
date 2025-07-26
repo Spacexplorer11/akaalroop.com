@@ -11,11 +11,6 @@
 	const anyProjectClicked = $projectsClicked.size > 0;
 
 	let randomProject = $state($projects[Math.floor(Math.random() * $projectRepos.length)]);
-
-	function rerollRandomProject() {
-		randomProject = $projects[Math.floor(Math.random() * $projectRepos.length)];
-		console.log("Rerolled project", randomProject);
-	}
 </script>
 
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">

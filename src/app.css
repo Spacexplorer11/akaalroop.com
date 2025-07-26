@@ -4,10 +4,10 @@
 @plugin '@tailwindcss/typography';
 
 @font-face {
-	font-family: 'National Park';
+	font-family: "National Park";
 	font-style: normal;
 	font-weight: 600;
-	src: url('/fonts/NationalPark-ExtraBold.woff2') format('woff2');
+	src: url("/fonts/NationalPark-ExtraBold.woff2") format("woff2");
 	font-display: swap;
 }
 

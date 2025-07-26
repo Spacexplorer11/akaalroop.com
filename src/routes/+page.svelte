@@ -13,7 +13,6 @@
 	let animationFrameId; // Store animation frame ID for cleanup
 
 	onMount(async () => {
-
 		// Start the smooth scroll animation
 		if ($projects.length > 0) {
 			startSmoothScroll();
@@ -106,8 +105,8 @@
 								onclick={() => {
 									if (starText) {
 										afterStarTextClick = true;
-										$projectsClicked.add(project.name);
 									}
+									$projectsClicked.add(project);
 								}}>View on GitHub</a
 							>
 						</div>

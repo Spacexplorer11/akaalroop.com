@@ -19,4 +19,17 @@
 			</button>
 		</div>
 	</Typewriter>
+	{#if yes}
+		<Typewriter>
+			<p><span
+					class="inline-block p-[0.5em] bg-black/70 rounded-[0.5em] overflow-hidden whitespace-normal max-w-fit">Great! Did you star any?</span>
+			</p>
+		</Typewriter>
+	{:else if no}
+		<Typewriter>
+			<p><span
+					class="inline-block p-[0.5em] bg-black/70 rounded-[0.5em] overflow-hidden whitespace-normal max-w-fit">Oh, well, you should check them out!</span>
+			</p>
+		</Typewriter>
+	{/if}
 </div>

@@ -12,8 +12,6 @@
 	let randomProject = $state(rerollRandomProject());
 
 	function rerollRandomProject() {
-		console.log(projects);
-		console.log(projectsClicked);
 		const unclicked = projects.filter((p) => !projectsClicked.has(p.name));
 		if (unclicked.length > 0) {
 			return unclicked[Math.floor(Math.random() * unclicked.length)];
@@ -92,11 +90,7 @@
 						aria-label="{randomProject.name} link"
 						title="Link to {randomProject.name}"
 						class="break-words hover:text-orange-600 hover:underline"
-						onclick={() => {
-						projectsClicked.add(randomProject.name);
-						console.log("Project clicked:", randomProject.name);
-						console.log(projectsClicked);
-					}}
+						onclick={() => {projectsClicked.add(randomProject.name)}}
 						target="_blank">{randomProject.name}</a
 				></span
 			>

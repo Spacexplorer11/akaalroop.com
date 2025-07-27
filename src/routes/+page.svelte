@@ -90,7 +90,7 @@
 		</Typewriter>
 		{#if $projects.length}
 			<div class="@container/scroll-container w-full overflow-hidden">
-				<div bind:this={carouselContainer} class="@container/scrolling-carousel flex">
+				<div bind:this={carouselContainer} class="@container/scrolling-carousel flex mb-5">
 					{#each [...$projects, ...$projects] as project}
 						<div
 							class="@container/project mx-5 w-[20rem] flex-shrink-0 rounded-2xl bg-black/70 p-4 text-center break-words text-white"

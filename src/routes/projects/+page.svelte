@@ -73,15 +73,20 @@
 				customCode();
 	}
 
-	async function sendToDiscord(code, timestamp) {
-		await fetch(`https://api.akaalroop.com/discord?reward=${code},${timestamp}`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({timestamp})
-		});
-	}
+async function sendToDiscord(code, timestamp) {
+    try {
+        await fetch(`https://api.akaalroop.com/discord?reward=${code},${timestamp}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ timestamp })
+        });
+    } catch (error) {
+        console.error("Failed to send to Discord:", error);
+        // Consider showing user-friendly error message
+    }
+}
 </script>
 
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">

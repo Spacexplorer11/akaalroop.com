@@ -1,7 +1,7 @@
 <script>
 	import { onMount, tick } from "svelte";
 	import Typewriter from "svelte-typewriter";
-	import {projectsClicked, projects} from "$lib/stores/projects.js";
+	import {projectsClicked, projects} from "$lib/projects.svelte.js";
 
 	let starText = false;
 	let afterStarTextClick = false;
@@ -88,10 +88,10 @@
 				>
 			</p>
 		</Typewriter>
-		{#if $projects.length}
+		{#if projects.length}
 			<div class="@container/scroll-container w-full overflow-hidden">
-				<div bind:this={carouselContainer} class="@container/scrolling-carousel flex mb-5">
-					{#each [...$projects, ...$projects] as project}
+				<div bind:this={carouselContainer} class="@container/scrolling-carousel mb-5 flex">
+					{#each [...projects, ...projects] as project}
 						<div
 							class="@container/project mx-5 w-[20rem] flex-shrink-0 rounded-2xl bg-black/70 p-4 text-center break-words text-white"
 						>
@@ -106,7 +106,7 @@
 									if (starText) {
 										afterStarTextClick = true;
 									}
-									$projectsClicked.add(project);
+									projectsClicked.add(project);
 								}}>View on GitHub</a
 							>
 						</div>

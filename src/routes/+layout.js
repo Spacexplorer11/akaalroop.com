@@ -1,4 +1,4 @@
-import { fetchProjects } from "$lib/stores/projects.js";
+import { fetchProjects } from "$lib/projects.svelte.js";
 
 export const load = async () => {
 	await fetchProjects();

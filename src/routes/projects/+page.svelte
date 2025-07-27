@@ -1,18 +1,30 @@
 <script>
 	import Typewriter from "svelte-typewriter";
-	import {projectsClicked, projects} from "$lib/stores/projects.js";
+	import {projectsClicked, projects} from "$lib/projects.svelte.js";
 
 	let yes = $state(false);
 	let no = $state(false);
 	let fakeYes = $state(false);
 	let fakeNo = $state(false);
 
-	const anyProjectClicked = $projectsClicked.size > 0;
+	const anyProjectClicked = projectsClicked.size > 0;
 
-	let projectsNotClicked = $projects.filter((p) => !$projectsClicked.has(p));
-	if (projectsNotClicked.length === 0) projectsNotClicked = $projects;
+	let randomProject = $state(rerollRandomProject());
 
-	let randomProject = $state(projectsNotClicked[Math.floor(Math.random() * projectsNotClicked.length)]);
+	function rerollRandomProject() {
+		console.log(projects);
+		console.log(projectsClicked);
+		const unclicked = projects.filter((p) => !projectsClicked.has(p.name));
+		if (unclicked.length > 0) {
+			return unclicked[Math.floor(Math.random() * unclicked.length)];
+		} else {
+			return {
+				name: "You checked out all my projects!",
+				html_url: "https://github.com/spacexplorer11",
+				description: "You've clicked all the projects!"
+			};
+		}
+	}
 </script>
 
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
@@ -27,7 +39,7 @@
 			>You've probably already seen some of my projects, right?</span
 			>
 		</p>
-		<div class="@container/button-wrapper flex mb-5 flex-row items-center justify-center space-x-15">
+		<div class="@container/button-wrapper mb-5 flex flex-row items-center justify-center space-x-15">
 			<button
 					class="inline-block transform cursor-pointer rounded-lg bg-black/70 p-2 text-2xl transition-transform select-none hover:scale-110"
 					aria-label="Yes"
@@ -70,26 +82,32 @@
 				>
 			</p>
 		</Typewriter>
-		<p class="flex-row items-center justify-center space-x-15 flex">
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>Here, I have a suggestion for you! You should check out:</span>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-					<a
-							href={randomProject.html_url}
-							aria-label="{randomProject.name} link"
-							title="Link to {randomProject.name}"
-							class="hover:text-orange-600 hover:underline break-words"
-							onclick="{$projectsClicked.add(randomProject)}"
-							target="_blank">{randomProject.name}</a
-					></span
+		<p class="flex flex-row items-center justify-center space-x-15">
+			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+			>Here, I have a suggestion for you! You should check out:</span
 			>
-			<button class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
-			        onclick={() => {randomProject = projectsNotClicked[Math.floor(Math.random() * projectsNotClicked.length)]}}>
+			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
+				<a
+						href={randomProject.html_url}
+						aria-label="{randomProject.name} link"
+						title="Link to {randomProject.name}"
+						class="break-words hover:text-orange-600 hover:underline"
+						onclick={() => {
+						projectsClicked.add(randomProject.name);
+						console.log("Project clicked:", randomProject.name);
+						console.log(projectsClicked);
+					}}
+						target="_blank">{randomProject.name}</a
+				></span
+			>
+			<button
+					class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
+					onclick={() => {
+					randomProject = rerollRandomProject();
+				}}
+			>
 				Reroll
 			</button>
-
-			<!-- TODO: Add fallback if all projects clicked -->
-
-			</p>
+		</p>
 	{/if}
 </div>

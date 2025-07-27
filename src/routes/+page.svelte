@@ -148,7 +148,8 @@
 				onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
 			>
 				<h2>Thanks!</h2>
-				<p>The stats update immediately! Just refresh to see the change!</p>
+				<p>The stats update immediately! Just refresh to see the change! Btw, go to the <a href="/projects">Projects
+					page</a> for a bigger reward!</p>
 				<button
 					class="mt-3 text-red-600"
 					onclick={() => (showModal = false)}

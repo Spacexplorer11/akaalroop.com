@@ -103,5 +103,19 @@
 				Reroll
 			</button>
 		</p>
+	{:else if fakeYes}
+		<Typewriter mode="cascade"
+		            on:done={window.location="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c343b32231a35d56f5afa1588264b5de3f37f13e_malware.txt"}>
+			<p>
+				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+				>Liar liar. That's not true! You clicked no links!</span
+				>
+			</p>
+			<p>
+				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
+					Since you've been caught lying, I am gonna hack you!
+				</span>
+			</p>
+		</Typewriter>
 	{/if}
 </div>

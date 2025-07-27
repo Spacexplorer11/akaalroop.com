@@ -37,10 +37,10 @@
 			const newlyFetchedProjects = await res.json();
 
 			starredProjects = newlyFetchedProjects.filter((newProj) => {
-				const oldProj = intialProjects.find(p => p.name === newProj.name);
+				const oldProj = intialProjects.find((p) => p.name === newProj.name);
 				if (oldProj === undefined) {
 					console.log("undefined project:", newProj.name);
-					return noStars = true; // Project not found in initial projects
+					return (noStars = true); // Project not found in initial projects
 				}
 				console.log(oldProj && newProj.stars > oldProj.stars);
 				return oldProj && newProj.stars > oldProj.stars;
@@ -68,7 +68,9 @@
 
 	async function sendEmail() {
 		await sendToDiscord(customCode(), Date.now());
-		window.location.href = ("mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20%20custom%code%20for%20verification%20is%20" + customCode());
+		window.location.href =
+				"mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20%20custom%code%20for%20verification%20is%20" +
+				customCode();
 	}
 
 	async function sendToDiscord(code, timestamp) {
@@ -80,7 +82,6 @@
 			body: JSON.stringify({timestamp})
 		});
 	}
-
 </script>
 
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
@@ -123,7 +124,11 @@
 		</div>
 	</Typewriter>
 	{#if yes}
-		<Typewriter on:done={() => {starChecking = true}}>
+		<Typewriter
+				on:done={() => {
+				starChecking = true;
+			}}
+		>
 			<p>
 				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
 				>Great! Let's find out if you starred any!</span
@@ -148,7 +153,9 @@
 						aria-label="{randomProject.name} link"
 						title="Link to {randomProject.name}"
 						class="break-words hover:text-orange-600 hover:underline"
-						onclick={() => {projectsClicked.add(randomProject.name)}}
+						onclick={() => {
+						projectsClicked.add(randomProject.name);
+					}}
 						target="_blank">{randomProject.name}</a
 				></span
 			>
@@ -162,8 +169,13 @@
 			</button>
 		</p>
 	{:else if fakeYes}
-		<Typewriter mode="cascade"
-		            on:done={() => {window.location="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c343b32231a35d56f5afa1588264b5de3f37f13e_malware.txt"}}>
+		<Typewriter
+				mode="cascade"
+				on:done={() => {
+				window.location =
+					"https://hc-cdn.hel1.your-objectstorage.com/s/v3/c343b32231a35d56f5afa1588264b5de3f37f13e_malware.txt";
+			}}
+		>
 			<p>
 				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
 				>Liar liar. That's not true! You clicked no links!</span
@@ -176,57 +188,69 @@
 			</p>
 		</Typewriter>
 	{:else if fakeNo}
-		<Typewriter mode="cascade" on:done={() => {starChecking = true}}>
-			<p><span
-					class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-				You have clicked! You sound a bit humble. I admire it.
-			</span></p>
-			<p><span
-					class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-				Now let's find out if you starred any!
-			</span></p>
+		<Typewriter
+				mode="cascade"
+				on:done={() => {
+				starChecking = true;
+			}}
+		>
+			<p>
+				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
+					You have clicked! You sound a bit humble. I admire it.
+				</span>
+			</p>
+			<p>
+				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
+					Now let's find out if you starred any!
+				</span>
+			</p>
 		</Typewriter>
 	{/if}
 	{#if starChecking}
 		{#if checkingInProgress}
 			<p>
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal animate-pulse">
+				<span
+						class="inline-block max-w-fit animate-pulse overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+				>
 					Checking for stars...
 				</span>
 			</p>
 		{:else if !checkingInProgress}
 			{#if !noStars}
 				<p>
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-					You starred the following projects:
-					{#each starredProjects as starredProject}
-						<a
+					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
+						You starred the following projects:
+						{#each starredProjects as starredProject}
+							<a
 								href={starredProject.html_url}
 								class="text-orange-500 hover:text-orange-600 hover:underline"
 								target="_blank"
 								onclick={() => {
-								projectsClicked.add(starredProject.name);
-							}}
-						>{starredProject.name}</a>
-					{/each}
-				</span>
+									projectsClicked.add(starredProject.name);
+								}}>{starredProject.name}</a
+							>
+						{/each}
+					</span>
 				</p>
 				<p>
-					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal mb-5">
-						Thank you for starring my projects! I really appreciate it!
-						For doing so, I'd like to give you a special reward!
-						Just hit the button below to get it!
-						(Btw it sends an email, and I'll personally reply with your reward!) :D
+					<span
+							class="mb-5 inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+					>
+						Thank you for starring my projects! I really appreciate it! For doing so, I'd like to give you a special
+						reward! Just hit the button below to get it! (Btw it sends an email, and I'll personally reply with your
+						reward!) :D
 					</span>
-					<button class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
-					        onclick="{sendEmail}">Send Email!
+					<button
+							class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
+							onclick={sendEmail}
+					>Send Email!
 					</button>
 				</p>
 			{:else}
 				<p>
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
+					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
 						You didn't star any of my projects! Please do! :3 I'd really appreciate it!
-				</span>
+					</span>
 				</p>
 			{/if}
 		{/if}

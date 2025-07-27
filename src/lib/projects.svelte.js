@@ -13,4 +13,5 @@ export let projects = [];
 export async function fetchProjects() {
 	const res = await fetch(`https://api.akaalroop.com/projects?repos=${projectRepos.join(",")}`);
 	projects = await res.json();
+	return projects;
 }

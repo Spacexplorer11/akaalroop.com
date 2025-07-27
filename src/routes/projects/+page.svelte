@@ -32,12 +32,12 @@
 	async function starCheck() {
 		checkingInProgress = true;
 		try {
-			const intialProjects = projects;
+			const initialProjects = projects;
 			const res = await fetch(`https://api.akaalroop.com/projects?repos=${projectRepos.join(",")}`);
 			const newlyFetchedProjects = await res.json();
 
 			starredProjects = newlyFetchedProjects.filter((newProj) => {
-				const oldProj = intialProjects.find((p) => p.name === newProj.name);
+				const oldProj = initialProjects.find((p) => p.name === newProj.name);
 				if (oldProj === undefined) {
 					console.log("undefined project:", newProj.name);
 					return (noStars = true); // Project not found in initial projects

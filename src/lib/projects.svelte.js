@@ -11,7 +11,16 @@ export const projectRepos = [
 export let projects = [];
 
 export async function fetchProjects() {
-	const res = await fetch(`https://api.akaalroop.com/projects?repos=${projectRepos.join(",")}`);
-	projects = await res.json();
-	return projects;
+	try {
+		const res = await fetch(`https://api.akaalroop.com/projects?repos=${projectRepos.join(",")}`);
+		if (!res.ok) {
+			throw new Error(`HTTP error! status: ${res.status}`);
+		}
+		projects = await res.json();
+		return projects;
+	} catch (error) {
+		console.error('Failed to fetch projects:', error);
+		projects = [];
+		return projects;
+	}
 }

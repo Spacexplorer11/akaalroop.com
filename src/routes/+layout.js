@@ -1,7 +1,12 @@
 import { fetchProjects } from "$lib/projects.svelte.js";
 
 export const load = async () => {
-	await fetchProjects();
+	try {
+		await fetchProjects();
+	} catch (error) {
+		console.error('Failed to load projects in layout:', error);
+		// Continue loading the page even if projects fail to fetch
+	}
 	return {};
 };
 

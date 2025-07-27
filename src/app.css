@@ -1,8 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=National+Park:wght@600&display=swap");
 @import "tailwindcss";
 
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@font-face {
+	font-family: "National Park";
+	font-style: normal;
+	font-weight: 600;
+	src: url("/fonts/NationalPark-ExtraBold.woff2") format("woff2");
+	font-display: swap;
+}
 
 html,
 body {

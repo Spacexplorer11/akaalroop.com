@@ -67,10 +67,11 @@
 	}
 
 	async function sendEmail() {
-		await sendToDiscord(customCode(), Date.now());
+		const code = customCode();
+		await sendToDiscord(code, Date.now());
 		window.location.href =
 				"mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20%20custom%code%20for%20verification%20is%20" +
-				customCode();
+				code;
 	}
 
 async function sendToDiscord(code, timestamp) {

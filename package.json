@@ -23,7 +23,9 @@
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"svelte": "^5.0.0",
 		"tailwindcss": "^4.1.11",
-		"vite": "^7.0.4"
+		"vite": "^7.0.4",
+		"wrangler": "^4.26.1",
+		"esbuild": "0.25.4"
 	},
 	"dependencies": {
       "@sentry/sveltekit": "^9",

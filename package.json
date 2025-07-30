@@ -23,11 +23,13 @@
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"svelte": "^5.0.0",
 		"tailwindcss": "^4.1.11",
-		"vite": "^7.0.4"
+		"vite": "^7.0.4",
+		"wrangler": "^4.26.1",
+		"esbuild": "0.25.4"
 	},
 	"dependencies": {
       "@sentry/sveltekit": "^9",
-		"@sveltejs/adapter-static": "^3.0.8",
+      "@sveltejs/adapter-cloudflare": "^7.1.1",
 		"svelte-typewrite": "^3.0.0",
 		"svelte-typewriter": "^3.2.3"
 	}

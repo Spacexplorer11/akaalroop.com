@@ -7,7 +7,10 @@
 	let fakeYes = $state(false);
 	let fakeNo = $state(false);
 	let sentEmail = $state(false);
-	let sentEmailBefore = $state(localStorage.getItem("sentEmail") === "true");
+	let sentEmailBefore = $state(false);
+	if (typeof localStorage !== "undefined" && window !== undefined) {
+		sentEmailBefore = localStorage.getItem("sentEmail") === "true";
+	}
 	const anyProjectClicked = projectsClicked.size > 0;
 
 	let randomProject = $state(rerollRandomProject());
@@ -75,7 +78,9 @@
 					"mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20%20custom%20code%20for%20verification%20is%20" +
 					code;
 			sentEmail = true;
-			localStorage.setItem("sentEmail", "true");
+			if (typeof localStorage !== "undefined" && window !== undefined) {
+				localStorage.setItem("sentEmail", "true");
+			}
 		}
 	}
 

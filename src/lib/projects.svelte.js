@@ -1,4 +1,13 @@
 export let projectsClicked = $state(new Set());
+
+export async function loadProjectsClicked() {
+	const saved = localStorage.getItem("projectsClicked");
+	if (saved) JSON.parse(saved).forEach((item) => projectsClicked.add(item));
+}
+
+export async function saveProjectsClicked() {
+	localStorage.setItem("projectsClicked", JSON.stringify(Array.from(projectsClicked)));
+}
 export const projectRepos = [
 	"akaalroop.com",
 	"meow_meals",

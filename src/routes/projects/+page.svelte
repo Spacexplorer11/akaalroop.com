@@ -160,8 +160,9 @@
 					aria-label="{randomProject.name} link"
 					title="Link to {randomProject.name}"
 					class="break-words hover:text-orange-600 hover:underline"
-					onclick={() => {
+					onclick={async () => {
 						projectsClicked.add(randomProject.name);
+						await saveProjectsClicked();
 					}}
 					target="_blank">{randomProject.name}</a
 				></span
@@ -232,8 +233,9 @@
 								href={starredProject.html_url}
 								class="text-orange-500 hover:text-orange-600 hover:underline"
 								target="_blank"
-								onclick={() => {
+								onclick={async () => {
 									projectsClicked.add(starredProject.name);
+									await saveProjectsClicked();
 								}}>{starredProject.name}</a
 							>
 						{/each}

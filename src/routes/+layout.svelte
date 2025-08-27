@@ -1,7 +1,9 @@
 <script>
 	import "../app.css";
 	import { Navbar } from "$lib";
+
+	let children = $props();
 </script>
 
 <Navbar />
-<slot />
+{@render children()}

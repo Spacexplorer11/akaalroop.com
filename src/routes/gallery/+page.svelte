@@ -5,7 +5,7 @@
 	<div class="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
 		{#each [...projects, ...projects] as project}
 			<div
-					class="@container/project mx-5 my-5 w-[20rem] flex-shrink-0 rounded-2xl bg-black/70 p-4 text-center break-words text-white"
+					class="@container/project mx-5 my-5 w-[20rem] flex-shrink-0 rounded-2xl bg-black/70 p-4 text-center break-words text-white hover:scale-[1.03]"
 			>
 				<h2>{project.name}</h2>
 				<p>{project.description}</p>

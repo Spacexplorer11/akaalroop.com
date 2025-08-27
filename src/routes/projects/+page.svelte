@@ -1,13 +1,13 @@
 <script>
 	import Typewriter from "svelte-typewriter";
-	import { projectRepos, projects, projectsClicked } from "$lib/projects.svelte.js";
+	import {projectRepos, projects, projectsClicked, saveProjectsClicked} from "$lib/projects.svelte.js";
 
 	let yes = $state(false);
 	let no = $state(false);
 	let fakeYes = $state(false);
 	let fakeNo = $state(false);
 	let sentEmail = $state(false);
-
+	let sentEmailBefore = $state(localStorage.getItem("sentEmail") === "true");
 	const anyProjectClicked = projectsClicked.size > 0;
 
 	let randomProject = $state(rerollRandomProject());
@@ -68,12 +68,15 @@
 	}
 
 	async function sendEmail() {
-		const code = customCode();
-		await sendToDiscord(code, Date.now());
-		window.location.href =
-			"mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20%20custom%20code%20for%20verification%20is%20" +
-			code;
-		sentEmail = true;
+		if (!sentEmailBefore) {
+			const code = customCode();
+			await sendToDiscord(code, Date.now());
+			window.location.href =
+					"mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20%20custom%20code%20for%20verification%20is%20" +
+					code;
+			sentEmail = true;
+			localStorage.setItem("sentEmail", "true");
+		}
 	}
 
 	async function sendToDiscord(code, timestamp) {
@@ -249,17 +252,23 @@
 						reward! Just hit the button below to get it! (Btw it sends an email, and I'll personally reply with your
 						reward!) :D
 					</span>
-					{#if !sentEmail}
+					{#if !sentEmail && !sentEmailBefore}
 						<button
 							class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
 							onclick={sendEmail}
 							>Send Email!
 						</button>
-					{:else}
+					{:else if sentEmail}
 						<span
 							class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
 						>
-							Email was sent! Check your inbox and spam folder and within 24hrs Akaalroop will have replied!! :D
+							Email was opened in your client! Please send it then check your inbox & spam/junk folder and within 24hrs Akaalroop will have replied!! :D
+						</span>
+					{:else if sentEmailBefore}
+						<span
+								class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+						>
+							Looks like you already sent an email before! Please wait for my reply! The reward is one time only! :D
 						</span>
 					{/if}
 				</p>

@@ -113,6 +113,17 @@
 									await saveProjectsClicked();
 								}}>View on GitHub</a
 							>
+							{#if project.homepage !== null && project.homepage !== ""}
+								<button
+										class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
+										onclick={async () => {
+											projectsClicked.add(project.name);
+									await saveProjectsClicked();
+										window.open(project.homepage, "_blank");}}
+										title="Open {project.homepage} in a new tab">
+									Visit website!
+								</button>
+							{/if}
 						</div>
 					{/each}
 				</div>

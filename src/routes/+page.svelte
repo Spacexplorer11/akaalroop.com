@@ -104,7 +104,7 @@
 							<a
 								class="text-orange-500 hover:text-orange-600 hover:underline"
 								href={project.html_url}
-								target="_blank"
+								target="_blank" rel="noopener noreferrer"
 								onclick={async () => {
 									if (starText) {
 										afterStarTextClick = true;

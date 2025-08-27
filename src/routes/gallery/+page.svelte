@@ -14,7 +14,7 @@
 				<a
 						class="text-orange-500 hover:text-orange-600 hover:underline"
 						href={project.html_url}
-						target="_blank"
+						target="_blank" rel="noopener noreferrer"
 						onclick={async () => {
 						projectsClicked.add(project.name);
 						await saveProjectsClicked();
@@ -26,7 +26,7 @@
 							onclick={async () => {
 							projectsClicked.add(project.name);
 							await saveProjectsClicked();
-							window.open(project.homepage, "_blank");
+							window.open(project.homepage, "_blank", "nopener noreferrer");
 						}}
 							title="Open {project.homepage} in a new tab"
 					>

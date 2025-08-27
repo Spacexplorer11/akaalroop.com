@@ -8,7 +8,7 @@
 	let fakeNo = $state(false);
 	let sentEmail = $state(false);
 	let sentEmailBefore = $state(false);
-	if (typeof localStorage !== "undefined" && window !== undefined) {
+	if (typeof localStorage !== "undefined" && typeof window !== undefined) {
 		sentEmailBefore = localStorage.getItem("sentEmail") === "true";
 	}
 	const anyProjectClicked = projectsClicked.size > 0;
@@ -77,7 +77,7 @@
 					"mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20%20custom%20code%20for%20verification%20is%20" +
 					code;
 			sentEmail = true;
-			if (typeof localStorage !== "undefined" && window !== undefined) {
+			if (typeof localStorage !== "undefined" && typeof window !== undefined) {
 				localStorage.setItem("sentEmail", "true");
 			}
 		}
@@ -171,7 +171,7 @@
 						projectsClicked.add(randomProject.name);
 						await saveProjectsClicked();
 					}}
-					target="_blank">{randomProject.name}</a
+					target="_blank" rel="noopener noreferrer">{randomProject.name}</a
 				></span
 			>
 			<button
@@ -239,7 +239,7 @@
 							<a
 								href={starredProject.html_url}
 								class="text-orange-500 hover:text-orange-600 hover:underline"
-								target="_blank"
+								target="_blank" rel="noopener noreferrer"
 								onclick={async () => {
 									projectsClicked.add(starredProject.name);
 									await saveProjectsClicked();

@@ -6,6 +6,8 @@
 		<a class="text-2xl font-medium text-orange-500 hover:text-orange-600 hover:overline" href="/">Home</a>
 		<a class="text-2xl font-medium text-orange-500 hover:text-orange-600 hover:overline"
 		   href="/projects">Projects</a>
+		<a class="text-2xl font-medium text-orange-500 hover:text-orange-600 hover:overline"
+		   href="/gallery">Gallery</a>
 		<!--	<a href="/about">About</a> -->
 		<!--	<a href="/contact">Contact</a> -->
 	</nav>

@@ -18,7 +18,9 @@ export const projectRepos = [
 	"supercalculator",
 	"lets-do-it",
 	"rust-is-the-best",
-	"justcount"
+	"justcount",
+	"winter-of-making-minecraft-mod",
+	"colourin"
 ];
 export let projects = [];
 

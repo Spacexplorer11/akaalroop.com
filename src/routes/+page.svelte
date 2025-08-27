@@ -1,7 +1,7 @@
 <script>
 	import { onMount, tick } from "svelte";
 	import Typewriter from "svelte-typewriter";
-	import {projectsClicked, projects} from "$lib/projects.svelte.js";
+	import {projects, projectsClicked} from "$lib/projects.svelte.js";
 
 	let starText = false;
 	let afterStarTextClick = false;
@@ -118,7 +118,7 @@
 			</div>
 		{/if}
 	</div>
-	<Typewriter mode="cascade" delay="4000">
+	<Typewriter delay="4000" mode="cascade">
 		<p>
 			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
 				>I hope you like them!</span
@@ -148,8 +148,11 @@
 				onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
 			>
 				<h2>Thanks!</h2>
-				<p>The stats update immediately! Just refresh to see the change! Btw, go to the <a href="/projects">Projects
-					page</a> for a bigger reward!</p>
+				<p>
+					The stats update immediately! Just refresh to see the change! Btw, go to the <a href="/projects"
+				>Projects page</a
+				> for a bigger reward!
+				</p>
 				<button
 					class="mt-3 text-red-600"
 					onclick={() => (showModal = false)}

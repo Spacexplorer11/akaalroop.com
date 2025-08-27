@@ -4,7 +4,7 @@ export const load = async () => {
 	try {
 		await fetchProjects();
 	} catch (error) {
-		console.error('Failed to load projects in layout:', error);
+		console.error("Failed to load projects in layout:", error);
 		// Continue loading the page even if projects fail to fetch
 	}
 	return {};

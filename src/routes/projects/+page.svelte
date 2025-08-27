@@ -105,8 +105,8 @@
 		</p>
 		<div class="@container/button-wrapper mb-5 flex flex-row items-center justify-center space-x-15">
 			<button
-				class="inline-block transform cursor-pointer rounded-lg bg-black/70 p-2 text-2xl transition-transform select-none hover:scale-110"
 				aria-label="Yes"
+				class="inline-block transform cursor-pointer rounded-lg bg-black/70 p-2 text-2xl transition-transform select-none hover:scale-110"
 				onclick={() => {
 					if (anyProjectClicked) {
 						yes = true;
@@ -117,8 +117,8 @@
 				>Yes!
 			</button>
 			<button
-				class="inline-block transform cursor-pointer rounded-lg bg-black/70 p-2 text-2xl transition-transform select-none hover:scale-110"
 				aria-label="No"
+				class="inline-block transform cursor-pointer rounded-lg bg-black/70 p-2 text-2xl transition-transform select-none hover:scale-110"
 				onclick={() => {
 					if (!anyProjectClicked) {
 						no = true;

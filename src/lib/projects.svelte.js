@@ -20,7 +20,7 @@ export async function fetchProjects() {
 		projects = await res.json();
 		return projects;
 	} catch (error) {
-		console.error('Failed to fetch projects:', error);
+		console.error("Failed to fetch projects:", error);
 		projects = [];
 		return projects;
 	}

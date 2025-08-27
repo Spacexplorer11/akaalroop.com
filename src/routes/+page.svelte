@@ -1,7 +1,7 @@
 <script>
 	import { onMount, tick } from "svelte";
 	import Typewriter from "svelte-typewriter";
-	import {projects, projectsClicked} from "$lib/projects.svelte.js";
+	import {projects, projectsClicked, saveProjectsClicked} from "$lib/projects.svelte.js";
 
 	let starText = false;
 	let afterStarTextClick = false;
@@ -105,11 +105,12 @@
 								class="text-orange-500 hover:text-orange-600 hover:underline"
 								href={project.html_url}
 								target="_blank"
-								onclick={() => {
+								onclick={async () => {
 									if (starText) {
 										afterStarTextClick = true;
 									}
-									projectsClicked.add(project);
+									projectsClicked.add(project.name);
+									await saveProjectsClicked();
 								}}>View on GitHub</a
 							>
 						</div>

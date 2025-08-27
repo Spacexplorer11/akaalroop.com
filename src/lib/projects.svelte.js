@@ -4,7 +4,7 @@ export async function loadProjectsClicked() {
 	if (typeof localStorage === "undefined") return;
 	if (window === undefined) return;
 	const savedStr = localStorage.getItem("projectsClicked");
-	if (!saved) return;
+	if (!savedStr) return;
 
 	try {
 		const savedObj = JSON.parse(savedStr);

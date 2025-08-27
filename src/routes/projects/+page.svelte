@@ -1,6 +1,6 @@
 <script>
 	import Typewriter from "svelte-typewriter";
-	import {fetchProjects, projectRepos, projects, projectsClicked} from "$lib/projects.svelte.js";
+	import { projectRepos, projects, projectsClicked } from "$lib/projects.svelte.js";
 
 	let yes = $state(false);
 	let no = $state(false);
@@ -71,75 +71,74 @@
 		const code = customCode();
 		await sendToDiscord(code, Date.now());
 		window.location.href =
-				"mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20%20custom%20code%20for%20verification%20is%20" +
-				code;
+			"mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20%20custom%20code%20for%20verification%20is%20" +
+			code;
 		sentEmail = true;
 	}
 
-async function sendToDiscord(code, timestamp) {
-    try {
-        await fetch(`https://api.akaalroop.com/discord?reward=${code},${timestamp}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ timestamp })
-        });
-    } catch (error) {
-        console.error("Failed to send to Discord:", error);
-        // Consider showing user-friendly error message
-    }
-}
+	async function sendToDiscord(code, timestamp) {
+		try {
+			await fetch(`https://api.akaalroop.com/discord?reward=${code}`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({ timestamp })
+			});
+		} catch (error) {
+			console.error("Failed to send to Discord:", error);
+		}
+	}
 </script>
 
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
 	<Typewriter mode="cascade">
 		<h1>
 			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-			>Projects!</span
+				>Projects!</span
 			>
 		</h1>
 		<p>
 			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-			>You've probably already seen some of my projects, right?</span
+				>You've probably already seen some of my projects, right?</span
 			>
 		</p>
 		<div class="@container/button-wrapper mb-5 flex flex-row items-center justify-center space-x-15">
 			<button
-					class="inline-block transform cursor-pointer rounded-lg bg-black/70 p-2 text-2xl transition-transform select-none hover:scale-110"
-					aria-label="Yes"
-					onclick={() => {
+				class="inline-block transform cursor-pointer rounded-lg bg-black/70 p-2 text-2xl transition-transform select-none hover:scale-110"
+				aria-label="Yes"
+				onclick={() => {
 					if (anyProjectClicked) {
 						yes = true;
 					} else {
 						fakeYes = true;
 					}
 				}}
-			>Yes!
+				>Yes!
 			</button>
 			<button
-					class="inline-block transform cursor-pointer rounded-lg bg-black/70 p-2 text-2xl transition-transform select-none hover:scale-110"
-					aria-label="No"
-					onclick={() => {
+				class="inline-block transform cursor-pointer rounded-lg bg-black/70 p-2 text-2xl transition-transform select-none hover:scale-110"
+				aria-label="No"
+				onclick={() => {
 					if (!anyProjectClicked) {
 						no = true;
 					} else {
 						fakeNo = true;
 					}
 				}}
-			>No?
+				>No?
 			</button>
 		</div>
 	</Typewriter>
 	{#if yes}
 		<Typewriter
-				on:done={() => {
+			on:done={() => {
 				starChecking = true;
 			}}
 		>
 			<p>
 				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>Great! Let's find out if you starred any!</span
+					>Great! Let's find out if you starred any!</span
 				>
 			</p>
 		</Typewriter>
@@ -147,29 +146,29 @@ async function sendToDiscord(code, timestamp) {
 		<Typewriter mode="cascade">
 			<p>
 				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>Oh, well, you should check them out!</span
+					>Oh, well, you should check them out!</span
 				>
 			</p>
 		</Typewriter>
 		<p class="flex flex-row items-center justify-center space-x-15">
 			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-			>Here, I have a suggestion for you! You should check out:</span
+				>Here, I have a suggestion for you! You should check out:</span
 			>
 			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
 				<a
-						href={randomProject.html_url}
-						aria-label="{randomProject.name} link"
-						title="Link to {randomProject.name}"
-						class="break-words hover:text-orange-600 hover:underline"
-						onclick={() => {
+					href={randomProject.html_url}
+					aria-label="{randomProject.name} link"
+					title="Link to {randomProject.name}"
+					class="break-words hover:text-orange-600 hover:underline"
+					onclick={() => {
 						projectsClicked.add(randomProject.name);
 					}}
-						target="_blank">{randomProject.name}</a
+					target="_blank">{randomProject.name}</a
 				></span
 			>
 			<button
-					class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
-					onclick={() => {
+				class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
+				onclick={() => {
 					randomProject = rerollRandomProject();
 				}}
 			>
@@ -178,15 +177,15 @@ async function sendToDiscord(code, timestamp) {
 		</p>
 	{:else if fakeYes}
 		<Typewriter
-				mode="cascade"
-				on:done={() => {
+			mode="cascade"
+			on:done={() => {
 				window.location =
 					"https://hc-cdn.hel1.your-objectstorage.com/s/v3/c343b32231a35d56f5afa1588264b5de3f37f13e_malware.txt";
 			}}
 		>
 			<p>
 				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>Liar liar. That's not true! You clicked no links!</span
+					>Liar liar. That's not true! You clicked no links!</span
 				>
 			</p>
 			<p>
@@ -197,8 +196,8 @@ async function sendToDiscord(code, timestamp) {
 		</Typewriter>
 	{:else if fakeNo}
 		<Typewriter
-				mode="cascade"
-				on:done={() => {
+			mode="cascade"
+			on:done={() => {
 				starChecking = true;
 			}}
 		>
@@ -218,7 +217,7 @@ async function sendToDiscord(code, timestamp) {
 		{#if checkingInProgress}
 			<p>
 				<span
-						class="inline-block max-w-fit animate-pulse overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+					class="inline-block max-w-fit animate-pulse overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
 				>
 					Checking for stars...
 				</span>
@@ -242,21 +241,22 @@ async function sendToDiscord(code, timestamp) {
 				</p>
 				<p>
 					<span
-							class="mb-5 inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+						class="mb-5 inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
 					>
 						Thank you for starring my projects! I really appreciate it! For doing so, I'd like to give you a special
 						reward! Just hit the button below to get it! (Btw it sends an email, and I'll personally reply with your
 						reward!) :D
 					</span>
 					{#if !sentEmail}
-					<button
+						<button
 							class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
 							onclick={sendEmail}
-					>Send Email!
-					</button>
+							>Send Email!
+						</button>
 					{:else}
 						<span
-								class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
+							class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+						>
 							Email was sent! Check your inbox and spam folder and within 24hrs Akaalroop will have replied!! :D
 						</span>
 					{/if}

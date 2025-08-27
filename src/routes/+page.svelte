@@ -109,7 +109,7 @@
 									if (starText) {
 										afterStarTextClick = true;
 									}
-									projectsClicked.add(project);
+									projectsClicked.add(project.name);
 									await saveProjectsClicked();
 								}}>View on GitHub</a
 							>

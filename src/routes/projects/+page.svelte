@@ -44,9 +44,8 @@
 				const oldProj = initialProjects.find((p) => p.name === newProj.name);
 				if (oldProj === undefined) {
 					console.log("undefined project:", newProj.name);
-					return (noStars = true); // Project not found in initial projects
+					return (noStars = true);
 				}
-				console.log(oldProj && newProj.stars > oldProj.stars);
 				return oldProj && newProj.stars > oldProj.stars;
 			});
 		} catch (e) {

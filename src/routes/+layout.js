@@ -3,7 +3,7 @@ import { fetchProjects, loadProjectsClicked } from "$lib/projects.svelte.js";
 export const load = async () => {
 	try {
 		await fetchProjects();
-		if (typeof window !== "undefined") {
+		if (typeof window !== undefined && localStorage !== undefined) {
 			await loadProjectsClicked();
 		}
 	} catch (error) {

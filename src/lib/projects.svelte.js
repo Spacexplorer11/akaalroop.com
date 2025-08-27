@@ -7,7 +7,9 @@ export const projectRepos = [
 	"trafalgar-to-trenches",
 	"cloudcat",
 	"supercalculator",
-	"lets-do-it"
+	"lets-do-it",
+	"rust-is-the-best",
+	"justcount"
 ];
 export let projects = [];
 

@@ -4,7 +4,7 @@
 
 {#if projects.length}
 	<div class="grid grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 lg:grid-cols-3">
-		{#each [...projects, ...projects] as project}
+		{#each projects as project (project.name)}
 			<div
 					class="@container/project mx-5 my-5 w-[20rem] flex-shrink-0 rounded-2xl bg-black/70 p-4 text-center break-words text-white hover:scale-[1.03]"
 			>

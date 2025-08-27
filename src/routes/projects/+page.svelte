@@ -262,7 +262,8 @@
 						<span
 							class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
 						>
-							Email was opened in your client! Please send it then check your inbox & spam/junk folder and within 24hrs Akaalroop will have replied!! :D
+							Email was opened in your client! Please send it then check your inbox & spam/junk folder and within 24hrs
+							Akaalroop will have replied!! :D
 						</span>
 					{:else if sentEmailBefore}
 						<span

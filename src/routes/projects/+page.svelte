@@ -253,8 +253,8 @@
 						class="mb-5 inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
 					>
 						Thank you for starring my projects! I really appreciate it! For doing so, I'd like to give you a special
-						reward! Just hit the button below to get it! (Btw it opens your email client, and I'll personally reply with your
-						reward!) :D
+						reward! Just hit the button below to get it! (Btw it opens your email client, and I'll personally reply with
+						your reward!) :D
 					</span>
 					{#if !sentEmail && !sentEmailBefore}
 						<button
@@ -280,7 +280,8 @@
 			{:else}
 				<p>
 					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-						You didn't star any of my projects! Please do by clicking the <em>view on github link</em> then star in the top right! :3 I'd really appreciate it!
+						You didn't star any of my projects! Please do by clicking the <em>view on github link</em> then star in the top
+						right! :3 I'd really appreciate it!
 					</span>
 				</p>
 			{/if}

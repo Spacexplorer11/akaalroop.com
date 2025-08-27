@@ -104,7 +104,7 @@
 							<a
 								class="text-orange-500 hover:text-orange-600 hover:underline"
 								href={project.html_url}
-								target="_blank"
+								target="_blank" rel="noopener noreferrer"
 								onclick={async () => {
 									if (starText) {
 										afterStarTextClick = true;
@@ -117,10 +117,12 @@
 								<button
 										class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
 										onclick={async () => {
-											projectsClicked.add(project.name);
-									await saveProjectsClicked();
-										window.open(project.homepage, "_blank");}}
-										title="Open {project.homepage} in a new tab">
+										projectsClicked.add(project.name);
+										await saveProjectsClicked();
+										window.open(project.homepage, "_blank");
+									}}
+										title="Open {project.homepage} in a new tab"
+								>
 									Visit website!
 								</button>
 							{/if}

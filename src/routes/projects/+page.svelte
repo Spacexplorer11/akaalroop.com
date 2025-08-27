@@ -8,7 +8,7 @@
 	let fakeNo = $state(false);
 	let sentEmail = $state(false);
 	let sentEmailBefore = $state(false);
-	if (typeof localStorage !== "undefined" && window !== undefined) {
+	if (typeof localStorage !== "undefined" && typeof window !== undefined) {
 		sentEmailBefore = localStorage.getItem("sentEmail") === "true";
 	}
 	const anyProjectClicked = projectsClicked.size > 0;
@@ -77,7 +77,7 @@
 					"mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20%20custom%20code%20for%20verification%20is%20" +
 					code;
 			sentEmail = true;
-			if (typeof localStorage !== "undefined" && window !== undefined) {
+			if (typeof localStorage !== "undefined" && typeof window !== undefined) {
 				localStorage.setItem("sentEmail", "true");
 			}
 		}
@@ -171,7 +171,7 @@
 						projectsClicked.add(randomProject.name);
 						await saveProjectsClicked();
 					}}
-					target="_blank">{randomProject.name}</a
+					target="_blank" rel="noopener noreferrer">{randomProject.name}</a
 				></span
 			>
 			<button
@@ -239,7 +239,7 @@
 							<a
 								href={starredProject.html_url}
 								class="text-orange-500 hover:text-orange-600 hover:underline"
-								target="_blank"
+								target="_blank" rel="noopener noreferrer"
 								onclick={async () => {
 									projectsClicked.add(starredProject.name);
 									await saveProjectsClicked();
@@ -253,8 +253,8 @@
 						class="mb-5 inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
 					>
 						Thank you for starring my projects! I really appreciate it! For doing so, I'd like to give you a special
-						reward! Just hit the button below to get it! (Btw it opens your email client, and I'll personally reply with your
-						reward!) :D
+						reward! Just hit the button below to get it! (Btw it opens your email client, and I'll personally reply with
+						your reward!) :D
 					</span>
 					{#if !sentEmail && !sentEmailBefore}
 						<button
@@ -280,7 +280,8 @@
 			{:else}
 				<p>
 					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-						You didn't star any of my projects! Please do by clicking the <em>view on github link</em> then star in the top right! :3 I'd really appreciate it!
+						You didn't star any of my projects! Please do by clicking the <em>view on github link</em> then star in the top
+						right! :3 I'd really appreciate it!
 					</span>
 				</p>
 			{/if}

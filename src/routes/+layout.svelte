@@ -2,7 +2,7 @@
 	import "../app.css";
 	import { Navbar } from "$lib";
 
-	let {children} = $props();
+	let { children } = $props();
 </script>
 
 <Navbar />

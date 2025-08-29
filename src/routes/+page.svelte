@@ -1,7 +1,7 @@
 <script>
 	import { onMount, tick } from "svelte";
 	import Typewriter from "svelte-typewriter";
-	import {projects, projectsClicked, saveProjectsClicked} from "$lib/projects.svelte.js";
+	import { projects, projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
 
 	let starText = false;
 	let afterStarTextClick = false;
@@ -91,8 +91,8 @@
 		{#if projects.length}
 			<div class="@container/scroll-container w-full overflow-hidden">
 				<div
-						bind:this={carouselContainer}
-						class="@container/scrolling-carousel mb-5 flex transform-gpu will-change-transform"
+					bind:this={carouselContainer}
+					class="@container/scrolling-carousel mb-5 flex transform-gpu will-change-transform"
 				>
 					{#each [...projects, ...projects] as project}
 						<div
@@ -104,7 +104,8 @@
 							<a
 								class="text-orange-500 hover:text-orange-600 hover:underline"
 								href={project.html_url}
-								target="_blank" rel="noopener noreferrer"
+								target="_blank"
+								rel="noopener noreferrer"
 								onclick={async () => {
 									if (starText) {
 										afterStarTextClick = true;
@@ -115,13 +116,13 @@
 							>
 							{#if project.homepage !== null && project.homepage !== ""}
 								<button
-										class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
-										onclick={async () => {
+									class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
+									onclick={async () => {
 										projectsClicked.add(project.name);
 										await saveProjectsClicked();
 										window.open(project.homepage, "_blank");
 									}}
-										title="Open {project.homepage} in a new tab"
+									title="Open {project.homepage} in a new tab"
 								>
 									Visit website!
 								</button>
@@ -164,8 +165,8 @@
 				<h2>Thanks!</h2>
 				<p>
 					The stats update immediately! Just refresh to see the change! Btw, go to the <a href="/projects"
-				>Projects page</a
-				> for a bigger reward!
+						>Projects page</a
+					> for a bigger reward!
 				</p>
 				<button
 					class="mt-3 text-red-600"

@@ -28,8 +28,8 @@
 		"esbuild": "0.25.4"
 	},
 	"dependencies": {
-      "@sentry/sveltekit": "^9.43.0",
-      "@sveltejs/adapter-cloudflare": "^7.1.1",
+		"@sentry/sveltekit": "^9.43.0",
+		"@sveltejs/adapter-cloudflare": "^7.1.1",
 		"svelte-typewrite": "^3.0.0",
 		"svelte-typewriter": "^3.2.3"
 	}

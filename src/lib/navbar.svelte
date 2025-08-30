@@ -17,6 +17,7 @@
 					width="114"
 					style="border: 0; border-radius: 6px;"
 			></iframe>
+			{#if typeof window !== 'undefined'}
 			<script
 					type="text/javascript"
 					src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
@@ -30,6 +31,7 @@
 					data-font-color="#000000"
 					data-coffee-color="#ffffff"
 			></script>
+				{/if}
 		</div>
 	</nav>
 </div>

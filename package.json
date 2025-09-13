@@ -25,7 +25,7 @@
 		"tailwindcss": "^4.1.12",
 		"vite": "^7.1.5",
 		"wrangler": "^4.33.1",
-		"esbuild": "0.25.4"
+		"esbuild": "0.25.9"
 	},
 	"dependencies": {
 		"@sentry/sveltekit": "^9.46.0",

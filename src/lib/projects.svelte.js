@@ -37,6 +37,7 @@ export const projectRepos = [
 	"lets-do-it",
 	"meow_meals",
 	"rust-is-the-best",
+	"shy-bridge",
 	"space_dodge",
 	"supercalculator",
 	"trafalgar-to-trenches",

@@ -42,7 +42,8 @@ export const projectRepos = [
 	"supercalculator",
 	"trafalgar-to-trenches",
 	"winter-of-making-minecraft-mod",
-	"word_ban"
+	"word_ban",
+	"wwf-support"
 ];
 export let projects = [];
 

@@ -13,21 +13,22 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.1.0",
-		"@sveltejs/kit": "^2.39.1",
-		"@sveltejs/vite-plugin-svelte": "^6.2.0",
+		"@sveltejs/kit": "^2.43.5",
+		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"@tailwindcss/forms": "^0.5.10",
-		"@tailwindcss/typography": "^0.5.16",
+		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.1.13",
 		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0",
 		"prettier-plugin-tailwindcss": "^0.6.14",
-		"svelte": "^5.38.6",
+		"svelte": "^5.39.9",
 		"tailwindcss": "^4.1.13",
-		"vite": "^7.1.5",
-		"wrangler": "^4.33.1",
-		"esbuild": "0.25.9"
+		"vite": "^7.1.7",
+		"wrangler": "^4.40.2",
+		"esbuild": "0.25.10"
 	},
 	"dependencies": {
+		"@sentry/sveltekit": "^10.17.0",
 		"@sveltejs/adapter-cloudflare": "^7.2.3",
 		"svelte-typewrite": "^3.0.0",
 		"svelte-typewriter": "^3.2.3"

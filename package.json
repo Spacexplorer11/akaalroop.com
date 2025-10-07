@@ -28,7 +28,7 @@
 		"esbuild": "0.25.10"
 	},
 	"dependencies": {
-		"@sveltejs/adapter-cloudflare": "^7.2.3",
+		"@sveltejs/adapter-cloudflare": "^7.2.4",
 		"svelte-typewrite": "^3.0.0",
 		"svelte-typewriter": "^3.2.3"
 	}

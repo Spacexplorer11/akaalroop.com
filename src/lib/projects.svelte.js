@@ -32,6 +32,7 @@ export async function saveProjectsClicked() {
 
 export const projectRepos = [
 	"akaalroop.com",
+	"boombox",
 	"cloudcat",
 	"justcount",
 	"lets-do-it",

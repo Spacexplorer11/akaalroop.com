@@ -7,12 +7,20 @@
 	let afterStarTextClick = false;
 	let showModal = $state(false);
 	let carouselContainer;
+	let carouselContainerElement;
+	let scrollingContainer;
 	let scrollPosition = 0;
 	const SCROLL_SPEED = 2;
 
 	let animationFrameId; // Store animation frame ID for cleanup
 
 	onMount(async () => {
+		scrollingContainer = document.getElementById("scroll-container");
+		carouselContainerElement = document.getElementById("carousel-container");
+		carouselContainerElement.addEventListener("mousedown", handleMouseDown);
+		window.addEventListener("mousemove", handleMouseMove);
+		window.addEventListener("mouseup", handleMouseUp);
+
 		// Start the smooth scroll animation
 		if (projects.length > 0) {
 			startSmoothScroll();
@@ -60,6 +68,27 @@
 		};
 		animationFrameId = requestAnimationFrame(animate);
 	}
+	let isDragging = false;
+	let startX;
+	let scrollStart;
+
+	function handleMouseDown(e) {
+		isDragging = true;
+		startX = e.clientX;
+		scrollStart = scrollPosition;
+	}
+
+	function handleMouseMove(e) {
+		if (!isDragging) return;
+		const delta = e.clientX - startX;
+		scrollPosition = scrollStart + delta;
+		carouselContainer.style.transform = `translateX(${scrollPosition}px)`;
+	}
+
+	function handleMouseUp() {
+		isDragging = false;
+		startSmoothScroll();
+	}
 </script>
 
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
@@ -89,8 +118,9 @@
 			</p>
 		</Typewriter>
 		{#if projects.length}
-			<div class="@container/scroll-container w-full overflow-hidden">
+			<div id="scroll-container" class="@container/scroll-container w-full overflow-hidden">
 				<div
+					id="carousel-container"
 					bind:this={carouselContainer}
 					class="@container/scrolling-carousel mb-5 flex transform-gpu will-change-transform"
 				>

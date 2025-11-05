@@ -7,12 +7,20 @@
 	let afterStarTextClick = false;
 	let showModal = $state(false);
 	let carouselContainer;
+	let carouselContainerElement;
 	let scrollPosition = 0;
-	const SCROLL_SPEED = 2;
+	let SCROLL_SPEED = 2;
 
 	let animationFrameId; // Store animation frame ID for cleanup
 
 	onMount(async () => {
+		carouselContainerElement = document.getElementById("carousel-container");
+		if (carouselContainerElement) {
+			carouselContainerElement.addEventListener("mousedown", handleMouseDown);
+		}
+		window.addEventListener("mousemove", handleMouseMove);
+		window.addEventListener("mouseup", handleMouseUp);
+
 		// Start the smooth scroll animation
 		if (projects.length > 0) {
 			startSmoothScroll();
@@ -38,6 +46,11 @@
 			if (animationFrameId) {
 				cancelAnimationFrame(animationFrameId);
 			}
+			if (carouselContainerElement) {
+				carouselContainerElement.removeEventListener("mousedown", handleMouseDown);
+			}
+			window.removeEventListener("mousemove", handleMouseMove);
+			window.removeEventListener("mouseup", handleMouseUp);
 		};
 	});
 
@@ -59,6 +72,30 @@
 			animationFrameId = requestAnimationFrame(animate);
 		};
 		animationFrameId = requestAnimationFrame(animate);
+	}
+	let isDragging = false;
+	let startX;
+	let scrollStart;
+
+	function handleMouseDown(e) {
+		isDragging = true;
+		startX = e.clientX;
+		scrollStart = scrollPosition;
+		SCROLL_SPEED = 0; // Pause automatic scrolling while dragging
+	}
+
+	function handleMouseMove(e) {
+		if (!isDragging) return;
+		const delta = e.clientX - startX;
+		if (delta > 1 || delta < -1) {
+			scrollPosition = scrollStart + delta;
+			carouselContainer.style.transform = `translateX(${scrollPosition}px)`;
+		}
+	}
+
+	function handleMouseUp() {
+		isDragging = false;
+		SCROLL_SPEED = 2; // Resume automatic scrolling
 	}
 </script>
 
@@ -89,8 +126,9 @@
 			</p>
 		</Typewriter>
 		{#if projects.length}
-			<div class="@container/scroll-container w-full overflow-hidden">
+			<div id="scroll-container" class="@container/scroll-container w-full overflow-hidden">
 				<div
+					id="carousel-container"
 					bind:this={carouselContainer}
 					class="@container/scrolling-carousel mb-5 flex transform-gpu will-change-transform"
 				>

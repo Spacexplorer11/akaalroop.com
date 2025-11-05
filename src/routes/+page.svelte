@@ -15,7 +15,9 @@
 
 	onMount(async () => {
 		carouselContainerElement = document.getElementById("carousel-container");
-		carouselContainerElement.addEventListener("mousedown", handleMouseDown);
+		if (carouselContainerElement) {
+			carouselContainerElement.addEventListener("mousedown", handleMouseDown);
+		}
 		window.addEventListener("mousemove", handleMouseMove);
 		window.addEventListener("mouseup", handleMouseUp);
 
@@ -44,7 +46,9 @@
 			if (animationFrameId) {
 				cancelAnimationFrame(animationFrameId);
 			}
-			carouselContainerElement.removeEventListener("mousedown", handleMouseDown);
+			if (carouselContainerElement) {
+				carouselContainerElement.removeEventListener("mousedown", handleMouseDown);
+			}
 			window.removeEventListener("mousemove", handleMouseMove);
 			window.removeEventListener("mouseup", handleMouseUp);
 		};

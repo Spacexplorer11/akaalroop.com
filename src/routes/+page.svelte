@@ -8,14 +8,12 @@
 	let showModal = $state(false);
 	let carouselContainer;
 	let carouselContainerElement;
-	let scrollingContainer;
 	let scrollPosition = 0;
 	let SCROLL_SPEED = 2;
 
 	let animationFrameId; // Store animation frame ID for cleanup
 
 	onMount(async () => {
-		scrollingContainer = document.getElementById("scroll-container");
 		carouselContainerElement = document.getElementById("carousel-container");
 		carouselContainerElement.addEventListener("mousedown", handleMouseDown);
 		window.addEventListener("mousemove", handleMouseMove);

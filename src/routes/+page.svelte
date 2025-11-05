@@ -44,6 +44,9 @@
 			if (animationFrameId) {
 				cancelAnimationFrame(animationFrameId);
 			}
+			carouselContainerElement.removeEventListener("mousedown", handleMouseDown);
+			window.removeEventListener("mousemove", handleMouseMove);
+			window.removeEventListener("mouseup", handleMouseUp);
 		};
 	});
 

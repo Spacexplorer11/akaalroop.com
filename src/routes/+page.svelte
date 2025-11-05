@@ -81,13 +81,14 @@
 	function handleMouseMove(e) {
 		if (!isDragging) return;
 		const delta = e.clientX - startX;
-		scrollPosition = scrollStart + delta;
-		carouselContainer.style.transform = `translateX(${scrollPosition}px)`;
+		if (delta > 1 || delta < -1) {
+			scrollPosition = scrollStart + delta;
+			carouselContainer.style.transform = `translateX(${scrollPosition}px)`;
+		}
 	}
 
 	function handleMouseUp() {
 		isDragging = false;
-		startSmoothScroll();
 	}
 </script>
 

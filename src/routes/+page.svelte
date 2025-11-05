@@ -10,7 +10,7 @@
 	let carouselContainerElement;
 	let scrollingContainer;
 	let scrollPosition = 0;
-	const SCROLL_SPEED = 2;
+	let SCROLL_SPEED = 2;
 
 	let animationFrameId; // Store animation frame ID for cleanup
 
@@ -76,6 +76,7 @@
 		isDragging = true;
 		startX = e.clientX;
 		scrollStart = scrollPosition;
+		SCROLL_SPEED = 0; // Pause automatic scrolling while dragging
 	}
 
 	function handleMouseMove(e) {
@@ -89,6 +90,7 @@
 
 	function handleMouseUp() {
 		isDragging = false;
+		SCROLL_SPEED = 2; // Resume automatic scrolling
 	}
 </script>
 

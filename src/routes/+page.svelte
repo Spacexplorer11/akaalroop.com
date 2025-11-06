@@ -16,10 +16,10 @@
 	onMount(async () => {
 		carouselContainerElement = document.getElementById("carousel-container");
 		if (carouselContainerElement) {
-			carouselContainerElement.addEventListener("mousedown", handleMouseDown);
+			carouselContainerElement.addEventListener("pointerdown", handlePointerDown);
 		}
-		window.addEventListener("mousemove", handleMouseMove);
-		window.addEventListener("mouseup", handleMouseUp);
+		window.addEventListener("pointermove", handlePointerMove);
+		window.addEventListener("pointerup", handlePointerUp);
 
 		// Start the smooth scroll animation
 		if (projects.length > 0) {
@@ -47,10 +47,10 @@
 				cancelAnimationFrame(animationFrameId);
 			}
 			if (carouselContainerElement) {
-				carouselContainerElement.removeEventListener("mousedown", handleMouseDown);
+				carouselContainerElement.removeEventListener("pointerdown", handlePointerDown);
 			}
-			window.removeEventListener("mousemove", handleMouseMove);
-			window.removeEventListener("mouseup", handleMouseUp);
+			window.removeEventListener("pointermove", handlePointerMove);
+			window.removeEventListener("pointerup", handlePointerUp);
 		};
 	});
 
@@ -77,14 +77,14 @@
 	let startX;
 	let scrollStart;
 
-	function handleMouseDown(e) {
+	function handlePointerDown(e) {
 		isDragging = true;
 		startX = e.clientX;
 		scrollStart = scrollPosition;
 		SCROLL_SPEED = 0; // Pause automatic scrolling while dragging
 	}
 
-	function handleMouseMove(e) {
+	function handlePointerMove(e) {
 		if (!isDragging) return;
 		const delta = e.clientX - startX;
 		if (delta > 1 || delta < -1) {
@@ -93,7 +93,7 @@
 		}
 	}
 
-	function handleMouseUp() {
+	function handlePointerUp() {
 		isDragging = false;
 		SCROLL_SPEED = 2; // Resume automatic scrolling
 	}

@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Uh oh</title>
+	<title>Error {page.status} - Akaalroop</title>
 </svelte:head>
 
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">

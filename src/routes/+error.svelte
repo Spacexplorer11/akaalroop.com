@@ -31,5 +31,5 @@
 			>
 		</p>
 	{/if}
-	<img src="https://http.cat/{page.status}.jpg" alt="Cat Http" class="mt mx-auto" />
+	<img src="https://http.cat/{page.status}.jpg" alt="Cat Http" class="mt-8 mx-auto" />
 </div>

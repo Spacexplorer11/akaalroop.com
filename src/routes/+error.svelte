@@ -21,7 +21,7 @@
 	{:else if page.status === 403}
 		<p>
 			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-			>Oi where do you think you're going huh? You're not allowed so GET OUT naughty.</span
+				>Oi where do you think you're going huh? You're not allowed so GET OUT naughty.</span
 			>
 		</p>
 	{/if}

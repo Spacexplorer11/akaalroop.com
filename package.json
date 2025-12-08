@@ -24,7 +24,7 @@
 		"svelte": "^5.44.0",
 		"tailwindcss": "^4.1.17",
 		"vite": "^7.2.4",
-		"wrangler": "^4.50.0",
+		"wrangler": "^4.53.0",
 		"esbuild": "0.27.0"
 	},
 	"dependencies": {

@@ -36,6 +36,7 @@ export const projectRepos = [
 	"cloudcat",
 	"justcount",
 	"lets-do-it",
+	"mcrecipes",
 	"meow_meals",
 	"rust-is-the-best",
 	"shy-bridge",

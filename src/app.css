@@ -3,6 +3,11 @@
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
 
+@layer components {
+	.navbar-item {
+		@apply text-2xl font-medium text-orange-500 hover:text-orange-600 hover:overline md:text-3xl;
+	}
+}
 @font-face {
 	font-family: "National Park";
 	font-style: normal;

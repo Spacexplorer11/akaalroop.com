@@ -1,44 +1,25 @@
-<!-- # sv
+# Akaalroop's personal profile
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+![Hackatime](https://hackatime-badge.hackclub.com/U08D22QNUVD/akaalroop.com)
 
-## Creating a project
+Some may call this a portfolio, but I'd rather call it my fun zone because it's barely got any info about me, but more easter eggs and cool things like:
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Live updating stats of my repos
+- An original way of showing the text for contrast
+- Typewriter effect for pretty much everything (thanks to that lib!!)
+- Easter eggs!
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Why... did you make it?
 
-# create a new project in my-app
-npx sv create my-app
-```
+It's made with Svelte and for the [Smelt YSWS from Hack Club](https://smelt.hackclub.com) of which on the of the requirements was to have to have easter eggs!
 
-## Developing
+## How to run it locally?
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Why. Just why. It's literally **my** personal website. Why on earth do you need to run it locally?
+But open source is open source so:  
+(Bun commands are recommended as it's faster and the ones I use)
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
--->
-
-This is my personal profile page! It's made with Svelte and for
-the [Smelt YSWS from Hack Club.](https://smelt.hackclub.com)  
-![Hackatime](https://hackatime-badge.hackclub.com/U08D22QNUVD/akaalroop.com)  
-Btw, it has some easter eggs, so try to find them!
+1. Clone the repo
+2. Run `bun install` or `npm install` to install dependencies
+3. Run `bun dev` or `npm run dev` to start a local server
+4. Open `http://localhost:5173` in your browser (or whatever port it says in the terminal)

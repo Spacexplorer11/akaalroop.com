@@ -2,7 +2,7 @@
 	import Typewriter from "svelte-typewriter";
 </script>
 
-<div class="@container mx-auto px-4 py-8 text-center">
+<div class="@container mx-auto flex flex-col px-4 py-8 text-center">
 	<Typewriter mode="cascade" interval="20">
 		<h1 class="text-orange-500"><span class="text-bg">My Amazing Sponsors</span></h1>
 		<h2 class="text-orange-500">
@@ -11,10 +11,13 @@
 			</span>
 		</h2>
 	</Typewriter>
-	<Typewriter delay="3800" mode="cascade" interval="10">
-		<!-- <div class="text-orange-500  mt-5"><h1 class="text-bg">Platinum (£500-*)</h1></div>
-		<div class="text-orange-500  mt-5"><h1 class="text-bg">Gold (£200-£500)</h1></div>
-		<div class="text-orange-500  mt-5"><h1 class="text-bg">Silver (£50-£200)</h1></div> -->
-		<div class="mt-5 text-orange-500"><h1 class="text-bg">Bronze (£0-£50)</h1></div>
+	<Typewriter delay="3000" mode="cascade" interval="10">
+		<!-- <div class="text-orange-500 mb-5"><h1 class="mb-3"><span class="text-bg">Platinum (£500-*)</span></h1></div>
+		<div class="text-orange-500 mb-5"><h1 class="mb-3"><span class="text-bg">Gold (£200-£500)</span></h1></div>
+		<div class="text-orange-500 mb-5"><h1 class="mb-3"><span class="text-bg">Silver (£50-£200)</span>/h1></div> -->
+		<div class="mb-5 flex-col text-orange-500">
+			<h1 class="mb-3"><span class="text-bg">Bronze (£0-£50)</span></h1>
+			<p class="text-bg mx-auto">Mr Walsh - £5</p>
+		</div>
 	</Typewriter>
 </div>

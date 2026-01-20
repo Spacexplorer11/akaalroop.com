@@ -113,15 +113,15 @@
 		</p>
 		<p>
 			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>It was my dream to own this domain, and now I do &lt;3!</span
+				>It was my dream to own this domain, and now I do ❤️!</span
 			>
 		</p>
 	</Typewriter>
 	<div class="@container/project-carousel">
 		<Typewriter delay="3000">
 			<p>
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-					I've done quite a few projects! Here they are! ↓</span
+				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+					>I've done quite a few projects! Here they are! ↓</span
 				>
 			</p>
 		</Typewriter>
@@ -134,7 +134,7 @@
 				>
 					{#each [...projects, ...projects] as project}
 						<div
-							class="@container/project mx-5 w-[20rem] flex-shrink-0 rounded-2xl bg-black/70 p-4 text-center break-words text-white"
+							class="@container/project mx-5 w-[20rem] shrink-0 rounded-2xl bg-black/70 p-4 text-center wrap-break-word text-white"
 						>
 							<h2>{project.name}</h2>
 							<p>{project.description}</p>
@@ -179,7 +179,7 @@
 		</p>
 		<p>
 			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>These projects are actually updated straight from Github! Go give them a star and see them update here!</span
+				>These projects are actually updated straight from GitHub! Go give them a star and see them update here!</span
 			>
 		</p>
 	</Typewriter>

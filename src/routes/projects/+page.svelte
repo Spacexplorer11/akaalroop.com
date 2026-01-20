@@ -166,7 +166,7 @@
 					href={randomProject.html_url}
 					aria-label="{randomProject.name} link"
 					title="Link to {randomProject.name}"
-					class="break-words hover:text-orange-600 hover:underline"
+					class="wrap-break-word hover:text-orange-600 hover:underline"
 					onclick={async () => {
 						projectsClicked.add(randomProject.name);
 						await saveProjectsClicked();
@@ -282,7 +282,7 @@
 			{:else}
 				<p>
 					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-						You didn't star any of my projects! Please do by clicking the <em>view on github link</em> then star in the top
+						You didn't star any of my projects! Please do by clicking the <em>view on GitHub link</em> then star in the top
 						right! :3 I'd really appreciate it!
 					</span>
 				</p>

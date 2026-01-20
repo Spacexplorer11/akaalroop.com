@@ -7,6 +7,9 @@
 	.navbar-item {
 		@apply text-2xl font-medium text-orange-500 hover:text-orange-600 hover:overline md:text-3xl;
 	}
+	.text-bg {
+		@apply inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal;
+	}
 }
 @font-face {
 	font-family: "National Park";

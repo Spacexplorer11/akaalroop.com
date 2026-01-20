@@ -101,14 +101,10 @@
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
 	<Typewriter mode="cascade">
 		<h1>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>Projects!</span
-			>
+			<span class="text-bg">Projects!</span>
 		</h1>
 		<p>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>You've probably already seen some of my projects, right?</span
-			>
+			<span class="text-bg">You've probably already seen some of my projects, right?</span>
 		</p>
 		<div class="@container/button-wrapper mb-5 flex flex-row items-center justify-center space-x-15">
 			<button
@@ -144,24 +140,18 @@
 			}}
 		>
 			<p>
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-					>Great! Let's find out if you starred any!</span
-				>
+				<span class="text-bg">Great! Let's find out if you starred any!</span>
 			</p>
 		</Typewriter>
 	{:else if no}
 		<Typewriter mode="cascade">
 			<p>
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-					>Oh, well, you should check them out!</span
-				>
+				<span class="text-bg">Oh, well, you should check them out!</span>
 			</p>
 		</Typewriter>
 		<p class="flex flex-row items-center justify-center space-x-15">
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>Here, I have a suggestion for you! You should check out:</span
-			>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
+			<span class="text-bg">Here, I have a suggestion for you! You should check out:</span>
+			<span class="text-bg">
 				<a
 					href={randomProject.html_url}
 					aria-label="{randomProject.name} link"
@@ -193,14 +183,10 @@
 			}}
 		>
 			<p>
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-					>Liar liar. That's not true! You clicked no links!</span
-				>
+				<span class="text-bg">Liar liar. That's not true! You clicked no links!</span>
 			</p>
 			<p>
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-					Since you've been caught lying, I am gonna hack you!
-				</span>
+				<span class="text-bg"> Since you've been caught lying, I am gonna hack you! </span>
 			</p>
 		</Typewriter>
 	{:else if fakeNo}
@@ -211,14 +197,10 @@
 			}}
 		>
 			<p>
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-					You have clicked! You sound a bit humble. I admire it.
-				</span>
+				<span class="text-bg"> You have clicked! You sound a bit humble. I admire it. </span>
 			</p>
 			<p>
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-					Now let's find out if you starred any!
-				</span>
+				<span class="text-bg"> Now let's find out if you starred any! </span>
 			</p>
 		</Typewriter>
 	{/if}
@@ -234,7 +216,7 @@
 		{:else if !checkingInProgress}
 			{#if !noStars}
 				<p>
-					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
+					<span class="text-bg">
 						You starred the following projects:
 						{#each starredProjects as starredProject}
 							<a
@@ -251,9 +233,7 @@
 					</span>
 				</p>
 				<p>
-					<span
-						class="mb-5 inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-					>
+					<span class="text-bg mb-5">
 						Thank you for starring my projects! I really appreciate it! For doing so, I'd like to give you a special
 						reward! Just hit the button below to get it! (Btw it opens your email client, and I'll personally reply with
 						your reward!) :D
@@ -265,23 +245,19 @@
 							>Send Email!
 						</button>
 					{:else if sentEmail}
-						<span
-							class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-						>
+						<span class="text-bg">
 							Email was opened in your client! Please send it then check your inbox & spam/junk folder and within 24hrs
 							Akaalroop will have replied!! :D
 						</span>
 					{:else if sentEmailBefore}
-						<span
-							class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-						>
+						<span class="text-bg">
 							Looks like you already sent an email before! Please wait for my reply! The reward is one time only! :D
 						</span>
 					{/if}
 				</p>
 			{:else}
 				<p>
-					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
+					<span class="text-bg">
 						You didn't star any of my projects! Please do by clicking the <em>view on github link</em> then star in the top
 						right! :3 I'd really appreciate it!
 					</span>

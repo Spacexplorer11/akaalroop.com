@@ -102,27 +102,19 @@
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
 	<Typewriter mode="cascade">
 		<h1>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>Hi! Welcome to Akaalroop.com</span
-			>
+			<span class="text-bg">Hi! Welcome to Akaalroop.com</span>
 		</h1>
 		<p>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>This is my website!</span
-			>
+			<span class="text-bg">This is my website!</span>
 		</p>
 		<p>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>It was my dream to own this domain, and now I do &lt;3!</span
-			>
+			<span class="text-bg">It was my dream to own this domain, and now I do &lt;3!</span>
 		</p>
 	</Typewriter>
 	<div class="@container/project-carousel">
 		<Typewriter delay="3000">
 			<p>
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-					I've done quite a few projects! Here they are! ↓</span
-				>
+				<span class="text-bg"> I've done quite a few projects! Here they are! ↓</span>
 			</p>
 		</Typewriter>
 		{#if projects.length}
@@ -173,12 +165,10 @@
 	</div>
 	<Typewriter delay="4000" mode="cascade">
 		<p>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>I hope you like them!</span
-			>
+			<span class="text-bg">I hope you like them!</span>
 		</p>
 		<p>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+			<span class="text-bg"
 				>These projects are actually updated straight from Github! Go give them a star and see them update here!</span
 			>
 		</p>

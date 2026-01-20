@@ -102,14 +102,10 @@
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
 	<Typewriter mode="cascade">
 		<h1>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>Hi! Welcome to Akaalroop.com</span
-			>
+			<span class="text-bg">Hi! Welcome to Akaalroop.com</span>
 		</h1>
 		<p>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>This is my website!</span
-			>
+			<span class="text-bg">This is my website!</span>
 		</p>
 		<p>
 			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
@@ -173,9 +169,7 @@
 	</div>
 	<Typewriter delay="4000" mode="cascade">
 		<p>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>I hope you like them!</span
-			>
+			<span class="text-bg">I hope you like them!</span>
 		</p>
 		<p>
 			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"

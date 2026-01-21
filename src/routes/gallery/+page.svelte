@@ -1,12 +1,21 @@
 <script>
 	import { projects, projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
+	import { onMount } from "svelte";
+	import { goto } from "$app/navigation";
+
+	onMount(() => {
+		if (projects.length < 1) {
+			alert("No projects could be loaded to display in the gallery. Redirecting to home page. :(");
+			goto("/");
+		}
+	});
 </script>
 
-{#if projects.length}
+{#if projects.length > 0}
 	<div class="grid grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 lg:grid-cols-3">
 		{#each projects as project (project.name)}
 			<div
-				class="@container/project mx-5 my-5 w-[20rem] flex-shrink-0 rounded-2xl bg-black/70 p-4 text-center break-words text-white hover:scale-[1.03]"
+				class="@container/project mx-5 my-5 w-[20rem] shrink-0 rounded-2xl bg-black/70 p-4 text-center wrap-break-word text-white hover:scale-[1.03]"
 			>
 				<h2>{project.name}</h2>
 				<p>{project.description}</p>

@@ -1,4 +1,5 @@
 <script>
+	import { projects } from "$lib/projects.svelte.js";
 </script>
 
 <div
@@ -7,7 +8,9 @@
 	<nav class="flex w-full flex-wrap items-center space-x-5 gap-y-4 md:space-x-16 lg:space-x-24">
 		<a class="navbar-item" href="/">Home</a>
 		<a class="navbar-item" href="/projects">Projects</a>
-		<a class="navbar-item" href="/gallery">Gallery</a>
+		{#if projects.length > 0}
+			<a class="navbar-item" href="/gallery">Gallery</a>
+		{/if}
 		<a class="navbar-item" href="/sponsors">Sponsors</a>
 		<!--	<a href="/about">About</a> -->
 		<!--	<a href="/contact">Contact</a> -->

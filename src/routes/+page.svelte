@@ -114,14 +114,14 @@
 		</p>
 	</Typewriter>
 	<div class="@container/project-carousel">
-		<Typewriter delay="3000">
-			<p>
-				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-					>I've done quite a few projects! Here they are! ↓</span
-				>
-			</p>
-		</Typewriter>
-		{#if projects.length}
+		{#if projects.length > 0}
+			<Typewriter delay="3000">
+				<p>
+					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+						>I've done quite a few projects! Here they are! ↓</span
+					>
+				</p>
+			</Typewriter>
 			<div id="scroll-container" class="@container/scroll-container w-full overflow-hidden">
 				<div
 					id="carousel-container"
@@ -165,18 +165,35 @@
 					{/each}
 				</div>
 			</div>
+			<Typewriter delay="4000" mode="cascade">
+				<p>
+					<span class="text-bg">I hope you like them!</span>
+				</p>
+				<p>
+					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+						>These projects are actually updated straight from GitHub! Go give them a star and see them update here!</span
+					>
+				</p>
+			</Typewriter>
+		{:else}
+			<Typewriter delay="4500" mode="cascade" interval="10">
+				<h3>
+					<span
+						class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] text-xl whitespace-normal md:text-2xl"
+						>Hmm, it seems like the projects couldn't be loaded. It's quite sad :(</span
+					>
+				</h3>
+				<h3>
+					<span
+						class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] text-xl whitespace-normal md:text-2xl"
+						>Oh well, then maybe you should check out the <a class="text-purple-500 hover:underline" href="/projects"
+							>projects</a
+						> page!</span
+					>
+				</h3>
+			</Typewriter>
 		{/if}
 	</div>
-	<Typewriter delay="4000" mode="cascade">
-		<p>
-			<span class="text-bg">I hope you like them!</span>
-		</p>
-		<p>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>These projects are actually updated straight from GitHub! Go give them a star and see them update here!</span
-			>
-		</p>
-	</Typewriter>
 	{#if showModal}
 		<div
 			class="@container/modal-overlay fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"

@@ -252,8 +252,9 @@
 							Email was opened in your client! Please send it then check your inbox & spam/junk folder and within 24hrs
 							Akaalroop will have replied!! :D <br />
 							If that didn't work then please use one of the methods
-							<a class="text-purple-500 hover:underline" href="https://github.com/spacexplorer11">here</a> to reach me, referencing
-							this code:
+							<a class="text-purple-500 hover:underline" href="https://github.com/spacexplorer11" target="_blank"
+								>here</a
+							> to reach me, referencing this code:
 						</span>
 						<span class="text-bg">
 							<strong>{code}</strong>

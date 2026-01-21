@@ -1,6 +1,7 @@
 <script>
 	import Typewriter from "svelte-typewriter";
 	import { projectRepos, projects, projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
+	import { onMount } from "svelte";
 
 	let yes = $state(false);
 	let no = $state(false);
@@ -8,9 +9,7 @@
 	let fakeNo = $state(false);
 	let sentEmail = $state(false);
 	let sentEmailBefore = $state(false);
-	if (typeof localStorage !== "undefined" && typeof window !== undefined) {
-		sentEmailBefore = localStorage.getItem("sentEmail") === "true";
-	}
+	let code = $state("");
 	const anyProjectClicked = projectsClicked.size > 0;
 
 	let randomProject = $state(rerollRandomProject());
@@ -71,10 +70,10 @@
 
 	async function sendEmail() {
 		if (!sentEmailBefore) {
-			const code = customCode();
+			code = customCode();
 			await sendToDiscord(code, Date.now());
 			window.location.href =
-				"mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20%20custom%20code%20for%20verification%20is%20" +
+				"mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20custom%20code%20for%20verification%20is%20" +
 				code;
 			sentEmail = true;
 			if (typeof localStorage !== "undefined" && typeof window !== undefined) {
@@ -96,6 +95,10 @@
 			console.error("Failed to send to Discord:", error);
 		}
 	}
+
+	onMount(() => {
+		sentEmailBefore = localStorage.getItem("sentEmail") === "true";
+	});
 </script>
 
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
@@ -247,7 +250,13 @@
 					{:else if sentEmail}
 						<span class="text-bg">
 							Email was opened in your client! Please send it then check your inbox & spam/junk folder and within 24hrs
-							Akaalroop will have replied!! :D
+							Akaalroop will have replied!! :D <br />
+							If that didn't work then please use one of the methods
+							<a class="text-purple-500 hover:underline" href="https://github.com/spacexplorer11">here</a> to reach me, referencing
+							this code:
+						</span>
+						<span class="text-bg">
+							<strong>{code}</strong>
 						</span>
 					{:else if sentEmailBefore}
 						<span class="text-bg">

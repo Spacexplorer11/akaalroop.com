@@ -107,7 +107,7 @@
 	<title>Projects</title>
 </svelte:head>
 
-<div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
+<main class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
 	<Typewriter mode="cascade">
 		<h1>
 			<span class="text-bg">Projects!</span>
@@ -280,4 +280,4 @@
 			{/if}
 		{/if}
 	{/if}
-</div>
+</main>

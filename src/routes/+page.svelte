@@ -7,6 +7,7 @@
 	let { data } = $props();
 
 	let showModal = $state(false);
+	let hideCarousel = $state(false);
 	let carouselContainer;
 	let carouselContainerElement;
 	let scrollPosition = 0;
@@ -102,20 +103,22 @@
 </svelte:head>
 
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">
-	<Typewriter mode="cascade">
+	<header>
 		<h1>
 			<span class="text-bg">Hi! Welcome to Akaalroop.com</span>
 		</h1>
-		<p>
-			<span class="text-bg">This is my website!</span>
-		</p>
-		<p>
-			<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-				>It was my dream to own this domain, and now I do ❤️!</span
-			>
-		</p>
-	</Typewriter>
-	<div class="@container/project-carousel">
+		<Typewriter mode="cascade">
+			<p>
+				<span class="text-bg">This is my website!</span>
+			</p>
+			<p>
+				<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+					>It was my dream to own this domain, and now I do ❤️!</span
+				>
+			</p>
+		</Typewriter>
+	</header>
+	<main class="@container/project-carousel">
 		{#if data.projects.length > 0}
 			<Typewriter delay="3000">
 				<p>
@@ -142,6 +145,7 @@
 								href={project.html_url}
 								target="_blank"
 								rel="noopener noreferrer"
+								title="Go to {project.name} on GitHub"
 								onclick={async () => {
 									projectsClicked.add(project.name);
 									saveProjectsClicked(localStorage);
@@ -193,7 +197,7 @@
 				</h3>
 			</Typewriter>
 		{/if}
-	</div>
+	</main>
 	{#if showModal}
 		<div
 			class="@container/modal-overlay fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"

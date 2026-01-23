@@ -33,7 +33,7 @@
 </svelte:head>
 
 {#if data.projects.length > 0}
-	<div class="grid grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 lg:grid-cols-3">
+	<main class="grid grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 lg:grid-cols-3">
 		{#each data.projects as project (project.name)}
 			<div
 				class="@container/project mx-5 my-5 w-[20rem] shrink-0 rounded-2xl bg-black/70 p-4 text-center wrap-break-word text-white hover:scale-[1.03]"
@@ -46,6 +46,7 @@
 					href={project.html_url}
 					target="_blank"
 					rel="noopener noreferrer"
+					title="Go to {project.name} on GitHub"
 					onclick={async () => {
 						projectsClicked.add(project.name);
 						saveProjectsClicked(localStorage);
@@ -67,7 +68,7 @@
 				{/if}
 			</div>
 		{/each}
-	</div>
+	</main>
 	{#if showModal}
 		<div
 			class="@container/modal-overlay fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"

@@ -2,10 +2,10 @@
 	let { data } = $props();
 </script>
 
-<div
+<nav
 	class="@container relative mr-0 ml-0 flex w-full items-center justify-between bg-black/70 p-3 text-white md:flex-row md:p-10"
 >
-	<nav class="flex w-full flex-wrap items-center space-x-5 gap-y-4 md:space-x-16 lg:space-x-24">
+	<div class="flex w-full flex-wrap items-center space-x-5 gap-y-4 md:space-x-16 lg:space-x-24">
 		<a class="navbar-item" href="/">Home</a>
 		<a class="navbar-item" href="/projects">Projects</a>
 		{#if data.projects.length > 0}
@@ -30,5 +30,5 @@
 				/></a
 			>
 		</div>
-	</nav>
-</div>
+	</div>
+</nav>

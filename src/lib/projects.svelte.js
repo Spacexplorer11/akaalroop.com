@@ -19,7 +19,7 @@ export async function loadProjectsClicked(localStorage) {
 	}
 }
 
-export async function saveProjectsClicked(localStorage) {
+export async function saveProjectsClicked() {
 	if (typeof localStorage === "undefined") return;
 	if (typeof window === "undefined") return;
 	const expiry = Date.now() + 300_000;

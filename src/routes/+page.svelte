@@ -56,7 +56,7 @@
 			if (carouselContainer) {
 				scrollPosition -= SCROLL_SPEED;
 
-				// Get the width of one set of data.projects
+				// Get the width of one set of projects
 				const singleSetWidth = carouselContainer.scrollWidth / 2;
 
 				// Reset position when we've scrolled one full set

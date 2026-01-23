@@ -187,8 +187,7 @@
 		<Typewriter
 			mode="cascade"
 			on:done={() => {
-				window.location =
-					"https://hc-cdn.hel1.your-objectstorage.com/s/v3/c343b32231a35d56f5afa1588264b5de3f37f13e_malware.txt";
+				window.location = "/completely-normal-page.txt";
 			}}
 		>
 			<p>

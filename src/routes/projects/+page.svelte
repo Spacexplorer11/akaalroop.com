@@ -1,6 +1,6 @@
 <script>
 	import Typewriter from "svelte-typewriter";
-	import { projectRepos, projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
+	import { projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
 	import { onMount } from "svelte";
 
 	let { data } = $props();
@@ -38,7 +38,7 @@
 		checkingInProgress = true;
 		try {
 			const initialProjects = data.projects;
-			const res = await fetch(`https://api.akaalroop.com/projects?repos=${projectRepos.join(",")}`);
+			const res = await fetch("https://api.akaalroop.com/projects");
 			const newlyFetchedProjects = await res.json();
 
 			starredProjects = newlyFetchedProjects.filter((newProj) => {
@@ -222,7 +222,7 @@
 			{#if !noStars}
 				<p>
 					<span class="text-bg">
-						You starred the following data.projects:
+						You starred the following projects:
 						{#each starredProjects as starredProject}
 							<a
 								href={starredProject.html_url}
@@ -239,9 +239,9 @@
 				</p>
 				<p>
 					<span class="text-bg mb-5">
-						Thank you for starring my data.projects! I really appreciate it! For doing so, I'd like to give you a
-						special reward! Just hit the button below to get it! (Btw it opens your email client, and I'll personally
-						reply with your reward!) :D
+						Thank you for starring my projects! I really appreciate it! For doing so, I'd like to give you a special
+						reward! Just hit the button below to get it! (Btw it opens your email client, and I'll personally reply with
+						your reward!) :D
 					</span>
 					{#if !sentEmail && !sentEmailBefore}
 						<button
@@ -270,8 +270,8 @@
 			{:else}
 				<p>
 					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal">
-						You didn't star any of my data.projects! Please do by clicking the <em>view on GitHub link</em> then star in the
-						top right! :3 I'd really appreciate it!
+						You didn't star any of my projects! Please do by clicking the <em>view on GitHub link</em> then star in the top
+						right! :3 I'd really appreciate it!
 					</span>
 				</p>
 			{/if}

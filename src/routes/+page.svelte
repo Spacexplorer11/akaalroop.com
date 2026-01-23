@@ -5,8 +5,6 @@
 
 	let { data } = $props();
 
-	let starText = false;
-	let afterStarTextClick = false;
 	let showModal = $state(false);
 	let carouselContainer;
 	let carouselContainerElement;
@@ -28,14 +26,9 @@
 			startSmoothScroll();
 		}
 
-		setTimeout(() => {
-			starText = true;
-		}, 6000);
-
 		const handler = async () => {
-			if (document.visibilityState === "visible" && afterStarTextClick) {
+			if (document.visibilityState === "visible") {
 				showModal = true;
-				afterStarTextClick = false;
 				await tick();
 				document.getElementById("modal-content")?.focus();
 			}
@@ -120,7 +113,7 @@
 			<Typewriter delay="3000">
 				<p>
 					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-						>I've done quite a few data.projects! Here they are! ↓</span
+						>I've done quite a few projects! Here they are! ↓</span
 					>
 				</p>
 			</Typewriter>
@@ -143,9 +136,6 @@
 								target="_blank"
 								rel="noopener noreferrer"
 								onclick={async () => {
-									if (starText) {
-										afterStarTextClick = true;
-									}
 									projectsClicked.add(project.name);
 									await saveProjectsClicked();
 								}}>View on GitHub</a
@@ -173,8 +163,7 @@
 				</p>
 				<p>
 					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-						>These data.projects are actually updated straight from GitHub! Go give them a star and see them update
-						here!</span
+						>These projects are actually updated straight from GitHub! Go give them a star and see them update here!</span
 					>
 				</p>
 			</Typewriter>
@@ -183,15 +172,14 @@
 				<h3>
 					<span
 						class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] text-xl whitespace-normal md:text-2xl"
-						>Hmm, it seems like the data.projects couldn't be loaded. It's quite sad :(</span
+						>Hmm, it seems like the projects couldn't be loaded. It's quite sad :(</span
 					>
 				</h3>
 				<h3>
 					<span
 						class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] text-xl whitespace-normal md:text-2xl"
-						>Oh well, then maybe you should check out the <a
-							class="text-purple-500 hover:underline"
-							href="/data.projects">data.projects</a
+						>Oh well, then maybe you should check out the <a class="text-purple-500 hover:underline" href="/projects"
+							>projects</a
 						> page!</span
 					>
 				</h3>
@@ -217,8 +205,9 @@
 			>
 				<h2>Thanks!</h2>
 				<p>
-					The stats update immediately! Just refresh to see the change! Btw, go to the <a href="/data.projects"
-						>data.projects page</a
+					Thanks for clicking! If you did give it a star, then go to the <a
+						class="text-purple-500 hover:underline"
+						href="/projects">projects page</a
 					> for a bigger reward!
 				</p>
 				<button

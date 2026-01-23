@@ -1,8 +1,6 @@
-import { projectRepos } from "$lib/projects.svelte.js";
-
 export async function load() {
 	try {
-		const res = await fetch(`https://api.akaalroop.com/projects?repos=${projectRepos.join(",")}`);
+		const res = await fetch("https://api.akaalroop.com/projects");
 		let projects = await res.json();
 		if (!res.ok) {
 			console.error(`HTTP error! status: ${res.status}`);

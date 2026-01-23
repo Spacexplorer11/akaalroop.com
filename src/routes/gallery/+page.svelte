@@ -54,7 +54,7 @@
 						onclick={async () => {
 							projectsClicked.add(project.name);
 							saveProjectsClicked(localStorage);
-							window.open(project.homepage, "_blank", "nopener noreferrer");
+							window.open(project.homepage, "_blank", "noopener noreferrer");
 						}}
 						title="Open {project.homepage} in a new tab"
 					>

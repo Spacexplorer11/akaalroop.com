@@ -2,6 +2,10 @@
 	import Typewriter from "svelte-typewriter";
 </script>
 
+<svelte:head>
+	<title>Sponsors</title>
+</svelte:head>
+
 <div class="@container mx-auto flex flex-col px-4 py-8 text-center">
 	<Typewriter mode="cascade" interval="20">
 		<h1 class="text-orange-500"><span class="text-bg">My Amazing Sponsors</span></h1>

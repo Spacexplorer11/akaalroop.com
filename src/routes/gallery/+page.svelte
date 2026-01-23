@@ -28,6 +28,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Gallery</title>
+</svelte:head>
+
 {#if data.projects.length > 0}
 	<div class="grid grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 lg:grid-cols-3">
 		{#each data.projects as project (project.name)}

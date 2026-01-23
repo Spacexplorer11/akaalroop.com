@@ -77,6 +77,7 @@
 				aria-modal="true"
 				aria-label="Modal dialog"
 				tabindex="0"
+				onclick={(e) => e.stopPropagation()}
 				onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "Escape") && (showModal = false)}
 			>
 				<h2>Thanks!</h2>

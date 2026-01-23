@@ -1,6 +1,6 @@
 export let projectsClicked = $state(new Set());
 
-export async function loadProjectsClicked() {
+export async function loadProjectsClicked(localStorage) {
 	if (typeof localStorage === "undefined") return;
 	if (typeof window === undefined) return;
 	const savedStr = localStorage.getItem("projectsClicked");
@@ -19,7 +19,7 @@ export async function loadProjectsClicked() {
 	}
 }
 
-export async function saveProjectsClicked() {
+export async function saveProjectsClicked(localStorage) {
 	if (typeof localStorage === "undefined") return;
 	if (typeof window === undefined) return;
 	const expiry = Date.now() + 300_000;
@@ -47,15 +47,3 @@ export const projectRepos = [
 	"word_ban",
 	"wwf-support"
 ];
-export let projects = [];
-
-export async function fetchProjects() {
-	const res = await fetch(`https://api.akaalroop.com/projects?repos=${projectRepos.join(",")}`);
-	projects = await res.json();
-	if (!res.ok) {
-		console.error(`HTTP error! status: ${res.status}`);
-		projects = [];
-		return projects;
-	}
-	return projects;
-}

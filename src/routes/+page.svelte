@@ -1,7 +1,9 @@
 <script>
 	import { onMount, tick } from "svelte";
 	import Typewriter from "svelte-typewriter";
-	import { projects, projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
+	import { projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
+
+	let { data } = $props();
 
 	let starText = false;
 	let afterStarTextClick = false;
@@ -11,7 +13,7 @@
 	let scrollPosition = 0;
 	let SCROLL_SPEED = 2;
 
-	let animationFrameId; // Store animation frame ID for cleanup
+	let animationFrameId; // Store animation frame ID for clean-up
 
 	onMount(async () => {
 		carouselContainerElement = document.getElementById("carousel-container");
@@ -22,7 +24,7 @@
 		window.addEventListener("pointerup", handlePointerUp);
 
 		// Start the smooth scroll animation
-		if (projects.length > 0) {
+		if (data.projects.length > 0) {
 			startSmoothScroll();
 		}
 
@@ -42,7 +44,7 @@
 		document.addEventListener("visibilitychange", handler);
 		return () => {
 			document.removeEventListener("visibilitychange", handler);
-			// Properly cleanup animation frame
+			// Properly clean-up animation frame
 			if (animationFrameId) {
 				cancelAnimationFrame(animationFrameId);
 			}
@@ -59,7 +61,7 @@
 			if (carouselContainer) {
 				scrollPosition -= SCROLL_SPEED;
 
-				// Get the width of one set of projects
+				// Get the width of one set of data.projects
 				const singleSetWidth = carouselContainer.scrollWidth / 2;
 
 				// Reset position when we've scrolled one full set
@@ -114,11 +116,11 @@
 		</p>
 	</Typewriter>
 	<div class="@container/project-carousel">
-		{#if projects.length > 0}
+		{#if data.projects.length > 0}
 			<Typewriter delay="3000">
 				<p>
 					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-						>I've done quite a few projects! Here they are! ↓</span
+						>I've done quite a few data.projects! Here they are! ↓</span
 					>
 				</p>
 			</Typewriter>
@@ -128,7 +130,7 @@
 					bind:this={carouselContainer}
 					class="@container/scrolling-carousel mb-5 flex transform-gpu will-change-transform"
 				>
-					{#each [...projects, ...projects] as project}
+					{#each [...data.projects, ...data.projects] as project}
 						<div
 							class="@container/project mx-5 w-[20rem] shrink-0 rounded-2xl bg-black/70 p-4 text-center wrap-break-word text-white"
 						>
@@ -171,7 +173,8 @@
 				</p>
 				<p>
 					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-						>These projects are actually updated straight from GitHub! Go give them a star and see them update here!</span
+						>These data.projects are actually updated straight from GitHub! Go give them a star and see them update
+						here!</span
 					>
 				</p>
 			</Typewriter>
@@ -180,14 +183,15 @@
 				<h3>
 					<span
 						class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] text-xl whitespace-normal md:text-2xl"
-						>Hmm, it seems like the projects couldn't be loaded. It's quite sad :(</span
+						>Hmm, it seems like the data.projects couldn't be loaded. It's quite sad :(</span
 					>
 				</h3>
 				<h3>
 					<span
 						class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] text-xl whitespace-normal md:text-2xl"
-						>Oh well, then maybe you should check out the <a class="text-purple-500 hover:underline" href="/projects"
-							>projects</a
+						>Oh well, then maybe you should check out the <a
+							class="text-purple-500 hover:underline"
+							href="/data.projects">data.projects</a
 						> page!</span
 					>
 				</h3>
@@ -213,8 +217,8 @@
 			>
 				<h2>Thanks!</h2>
 				<p>
-					The stats update immediately! Just refresh to see the change! Btw, go to the <a href="/projects"
-						>Projects page</a
+					The stats update immediately! Just refresh to see the change! Btw, go to the <a href="/data.projects"
+						>data.projects page</a
 					> for a bigger reward!
 				</p>
 				<button

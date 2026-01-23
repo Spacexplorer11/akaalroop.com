@@ -1,15 +1,29 @@
 <script>
 	import { projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
-	import { onMount } from "svelte";
-	import { goto } from "$app/navigation";
+	import { onMount, tick } from "svelte";
+	import { goto, invalidateAll } from "$app/navigation";
+
+	let showModal = $state(false);
 
 	let { data } = $props();
 
 	onMount(() => {
 		if (data.projects.length < 1) {
-			alert("No data.projects could be loaded to display in the gallery. Redirecting to home page. :(");
+			alert("No projects could be loaded to display in the gallery. Redirecting to home page. :(");
 			goto("/");
 		}
+		const handler = async () => {
+			if (document.visibilityState === "visible") {
+				showModal = true;
+				await invalidateAll();
+				await tick();
+				document.getElementById("modal-content")?.focus();
+			}
+		};
+		document.addEventListener("visibilitychange", handler);
+		return () => {
+			document.removeEventListener("visibilitychange", handler);
+		};
 	});
 </script>
 
@@ -48,4 +62,40 @@
 			</div>
 		{/each}
 	</div>
+	{#if showModal}
+		<div
+			class="@container/modal-overlay fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"
+			role="button"
+			tabindex="0"
+			onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+		>
+			<div
+				id="modal-content"
+				class="@container/modal-content mb-5 w-xs max-w-full rounded-b-lg bg-black/80 p-8 text-center text-orange-500 shadow-[0_0_20px_rgba(0,0,0,0.3)]"
+				role="dialog"
+				aria-modal="true"
+				aria-label="Modal dialog"
+				tabindex="0"
+				onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+			>
+				<h2>Thanks!</h2>
+				<p>
+					Thanks for clicking! If you did give it a star, then go to the <a
+						class="text-purple-500 hover:underline"
+						href="/projects">projects page</a
+					> for a bigger reward!
+				</p>
+				<button
+					class="mt-3 text-red-600"
+					onclick={() => (showModal = false)}
+					onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+				>
+					<span
+						class="inline-block transform cursor-pointer rounded-b-lg bg-black/70 p-2 transition-transform select-none hover:scale-110"
+						>Thanks for clicking!</span
+					>
+				</button>
+			</div>
+		</div>
+	{/if}
 {/if}

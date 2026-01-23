@@ -2,6 +2,7 @@
 	import { onMount, tick } from "svelte";
 	import Typewriter from "svelte-typewriter";
 	import { projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
+	import { invalidateAll } from "$app/navigation";
 
 	let { data } = $props();
 
@@ -29,6 +30,7 @@
 		const handler = async () => {
 			if (document.visibilityState === "visible") {
 				showModal = true;
+				await invalidateAll();
 				await tick();
 				document.getElementById("modal-content")?.focus();
 			}
@@ -217,7 +219,7 @@
 				>
 					<span
 						class="inline-block transform cursor-pointer rounded-b-lg bg-black/70 p-2 transition-transform select-none hover:scale-110"
-						>Thanks for the star!</span
+						>Thanks for clicking!</span
 					>
 				</button>
 			</div>

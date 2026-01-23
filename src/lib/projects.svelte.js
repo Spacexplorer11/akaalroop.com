@@ -1,6 +1,6 @@
 export let projectsClicked = $state(new Set());
 
-export async function loadProjectsClicked(localStorage) {
+export function loadProjectsClicked(localStorage) {
 	if (typeof localStorage === "undefined") return;
 	if (typeof window === "undefined") return;
 	const savedStr = localStorage.getItem("projectsClicked");
@@ -19,7 +19,7 @@ export async function loadProjectsClicked(localStorage) {
 	}
 }
 
-export async function saveProjectsClicked() {
+export function saveProjectsClicked(localStorage) {
 	if (typeof localStorage === "undefined") return;
 	if (typeof window === "undefined") return;
 	const expiry = Date.now() + 300_000;

@@ -164,7 +164,7 @@
 					class="wrap-break-word hover:text-orange-600 hover:underline"
 					onclick={async () => {
 						projectsClicked.add(randomProject.name);
-						await saveProjectsClicked();
+						saveProjectsClicked(localStorage);
 					}}
 					target="_blank"
 					rel="noopener noreferrer">{randomProject.name}</a
@@ -231,7 +231,7 @@
 								rel="noopener noreferrer"
 								onclick={async () => {
 									projectsClicked.add(starredProject.name);
-									await saveProjectsClicked();
+									saveProjectsClicked(localStorage);
 								}}>{starredProject.name}</a
 							>
 						{/each}

@@ -140,7 +140,7 @@
 								rel="noopener noreferrer"
 								onclick={async () => {
 									projectsClicked.add(project.name);
-									await saveProjectsClicked();
+									saveProjectsClicked(localStorage);
 									projectClicked = true;
 								}}>View on GitHub</a
 							>
@@ -149,7 +149,7 @@
 									class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
 									onclick={async () => {
 										projectsClicked.add(project.name);
-										await saveProjectsClicked();
+										saveProjectsClicked(localStorage);
 										window.open(project.homepage, "_blank");
 									}}
 									title="Open {project.homepage} in a new tab"

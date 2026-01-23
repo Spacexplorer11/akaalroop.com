@@ -22,9 +22,9 @@
 			return unclicked[Math.floor(Math.random() * unclicked.length)];
 		} else {
 			return {
-				name: "You checked out all my data.projects!",
+				name: "You checked out all my projects!",
 				html_url: "https://github.com/spacexplorer11",
-				description: "You've clicked all the data.projects!"
+				description: "You've clicked all the projects!"
 			};
 		}
 	}

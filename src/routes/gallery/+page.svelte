@@ -65,9 +65,8 @@
 	{#if showModal}
 		<div
 			class="@container/modal-overlay fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"
-			role="button"
-			tabindex="0"
-			onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+			role="presentation"
+			onclick={showModal = false}
 		>
 			<div
 				id="modal-content"
@@ -76,7 +75,7 @@
 				aria-modal="true"
 				aria-label="Modal dialog"
 				tabindex="0"
-				onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+				onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "Escape") && (showModal = false)}
 			>
 				<h2>Thanks!</h2>
 				<p>
@@ -88,7 +87,7 @@
 				<button
 					class="mt-3 text-red-600"
 					onclick={() => (showModal = false)}
-					onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+					onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "Escape") && (showModal = false)}
 				>
 					<span
 						class="inline-block transform cursor-pointer rounded-b-lg bg-black/70 p-2 transition-transform select-none hover:scale-110"

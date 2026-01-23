@@ -1,17 +1,19 @@
 <script>
 	import { onMount, tick } from "svelte";
 	import Typewriter from "svelte-typewriter";
-	import { projects, projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
+	import { projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
+	import { invalidateAll } from "$app/navigation";
 
-	let starText = false;
-	let afterStarTextClick = false;
+	let { data } = $props();
+
 	let showModal = $state(false);
 	let carouselContainer;
 	let carouselContainerElement;
 	let scrollPosition = 0;
 	let SCROLL_SPEED = 2;
+	let projectClicked = $state(false);
 
-	let animationFrameId; // Store animation frame ID for cleanup
+	let animationFrameId; // Store animation frame ID for clean-up
 
 	onMount(async () => {
 		carouselContainerElement = document.getElementById("carousel-container");
@@ -22,18 +24,14 @@
 		window.addEventListener("pointerup", handlePointerUp);
 
 		// Start the smooth scroll animation
-		if (projects.length > 0) {
+		if (data.projects.length > 0) {
 			startSmoothScroll();
 		}
 
-		setTimeout(() => {
-			starText = true;
-		}, 6000);
-
 		const handler = async () => {
-			if (document.visibilityState === "visible" && afterStarTextClick) {
+			if (document.visibilityState === "visible" && projectClicked) {
 				showModal = true;
-				afterStarTextClick = false;
+				await invalidateAll();
 				await tick();
 				document.getElementById("modal-content")?.focus();
 			}
@@ -42,7 +40,7 @@
 		document.addEventListener("visibilitychange", handler);
 		return () => {
 			document.removeEventListener("visibilitychange", handler);
-			// Properly cleanup animation frame
+			// Properly clean-up animation frame
 			if (animationFrameId) {
 				cancelAnimationFrame(animationFrameId);
 			}
@@ -114,7 +112,7 @@
 		</p>
 	</Typewriter>
 	<div class="@container/project-carousel">
-		{#if projects.length > 0}
+		{#if data.projects.length > 0}
 			<Typewriter delay="3000">
 				<p>
 					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
@@ -128,7 +126,7 @@
 					bind:this={carouselContainer}
 					class="@container/scrolling-carousel mb-5 flex transform-gpu will-change-transform"
 				>
-					{#each [...projects, ...projects] as project}
+					{#each [...data.projects, ...data.projects] as project}
 						<div
 							class="@container/project mx-5 w-[20rem] shrink-0 rounded-2xl bg-black/70 p-4 text-center wrap-break-word text-white"
 						>
@@ -141,11 +139,9 @@
 								target="_blank"
 								rel="noopener noreferrer"
 								onclick={async () => {
-									if (starText) {
-										afterStarTextClick = true;
-									}
 									projectsClicked.add(project.name);
-									await saveProjectsClicked();
+									saveProjectsClicked(localStorage);
+									projectClicked = true;
 								}}>View on GitHub</a
 							>
 							{#if project.homepage !== null && project.homepage !== ""}
@@ -153,7 +149,7 @@
 									class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
 									onclick={async () => {
 										projectsClicked.add(project.name);
-										await saveProjectsClicked();
+										saveProjectsClicked(localStorage);
 										window.open(project.homepage, "_blank");
 									}}
 									title="Open {project.homepage} in a new tab"
@@ -197,10 +193,8 @@
 	{#if showModal}
 		<div
 			class="@container/modal-overlay fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"
-			role="button"
-			tabindex="0"
-			onclick={() => (showModal = false)}
-			onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+			role="presentation"
+			onclick={(showModal = false)}
 		>
 			<div
 				id="modal-content"
@@ -209,22 +203,24 @@
 				aria-modal="true"
 				aria-label="Modal dialog"
 				tabindex="0"
-				onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+				onclick={(e) => e.stopPropagation()}
+				onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "Escape") && (showModal = false)}
 			>
 				<h2>Thanks!</h2>
 				<p>
-					The stats update immediately! Just refresh to see the change! Btw, go to the <a href="/projects"
-						>Projects page</a
+					Thanks for clicking! If you did give it a star, then go to the <a
+						class="text-purple-500 hover:underline"
+						href="/projects">projects page</a
 					> for a bigger reward!
 				</p>
 				<button
 					class="mt-3 text-red-600"
 					onclick={() => (showModal = false)}
-					onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "esc") && (showModal = false)}
+					onkeydown={(e) => (e.key === "Enter" || e.key === " " || e.key === "Escape") && (showModal = false)}
 				>
 					<span
 						class="inline-block transform cursor-pointer rounded-b-lg bg-black/70 p-2 transition-transform select-none hover:scale-110"
-						>Thanks for the star!</span
+						>Thanks for clicking!</span
 					>
 				</button>
 			</div>

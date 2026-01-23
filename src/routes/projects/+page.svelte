@@ -1,7 +1,9 @@
 <script>
 	import Typewriter from "svelte-typewriter";
-	import { projectRepos, projects, projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
+	import { projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
 	import { onMount } from "svelte";
+
+	let { data } = $props();
 
 	let yes = $state(false);
 	let no = $state(false);
@@ -15,7 +17,7 @@
 	let randomProject = $state(rerollRandomProject());
 
 	function rerollRandomProject() {
-		const unclicked = projects.filter((p) => !projectsClicked.has(p.name));
+		const unclicked = data.projects.filter((p) => !projectsClicked.has(p.name));
 		if (unclicked.length > 0) {
 			return unclicked[Math.floor(Math.random() * unclicked.length)];
 		} else {
@@ -35,8 +37,8 @@
 	async function starCheck() {
 		checkingInProgress = true;
 		try {
-			const initialProjects = projects;
-			const res = await fetch(`https://api.akaalroop.com/projects?repos=${projectRepos.join(",")}`);
+			const initialProjects = data.projects;
+			const res = await fetch("https://api.akaalroop.com/projects");
 			const newlyFetchedProjects = await res.json();
 
 			starredProjects = newlyFetchedProjects.filter((newProj) => {
@@ -76,7 +78,7 @@
 				"mailto:akaal@akaalroop.com?subject=Reward%20on%20your%20site&body=Hi%20Akaalroop%2C%0A%0AI%20really%20like%20your%20website!%0A%0AI%20starred%20your%20projects%20and%20I%20would%20like%20to%20claim%20my%20reward!%0A%0AThank%20you!%0A%0A%0A%0A%0AMy%20custom%20code%20for%20verification%20is%20" +
 				code;
 			sentEmail = true;
-			if (typeof localStorage !== "undefined" && typeof window !== undefined) {
+			if (typeof localStorage !== "undefined" && typeof window !== "undefined") {
 				localStorage.setItem("sentEmail", "true");
 			}
 		}
@@ -162,7 +164,7 @@
 					class="wrap-break-word hover:text-orange-600 hover:underline"
 					onclick={async () => {
 						projectsClicked.add(randomProject.name);
-						await saveProjectsClicked();
+						saveProjectsClicked(localStorage);
 					}}
 					target="_blank"
 					rel="noopener noreferrer">{randomProject.name}</a
@@ -229,7 +231,7 @@
 								rel="noopener noreferrer"
 								onclick={async () => {
 									projectsClicked.add(starredProject.name);
-									await saveProjectsClicked();
+									saveProjectsClicked(localStorage);
 								}}>{starredProject.name}</a
 							>
 						{/each}

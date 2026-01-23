@@ -4,6 +4,7 @@
 	import { goto, invalidateAll } from "$app/navigation";
 
 	let showModal = $state(false);
+	let projectClicked = $state(false);
 
 	let { data } = $props();
 
@@ -13,7 +14,7 @@
 			goto("/");
 		}
 		const handler = async () => {
-			if (document.visibilityState === "visible") {
+			if (document.visibilityState === "visible" && projectClicked) {
 				showModal = true;
 				await invalidateAll();
 				await tick();
@@ -44,6 +45,7 @@
 					onclick={async () => {
 						projectsClicked.add(project.name);
 						await saveProjectsClicked();
+						projectClicked = true;
 					}}>View on GitHub</a
 				>
 				{#if project.homepage !== null && project.homepage !== ""}

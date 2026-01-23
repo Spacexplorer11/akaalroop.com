@@ -11,6 +11,7 @@
 	let carouselContainerElement;
 	let scrollPosition = 0;
 	let SCROLL_SPEED = 2;
+	let projectClicked = $state(false);
 
 	let animationFrameId; // Store animation frame ID for clean-up
 
@@ -28,7 +29,7 @@
 		}
 
 		const handler = async () => {
-			if (document.visibilityState === "visible") {
+			if (document.visibilityState === "visible" && projectClicked) {
 				showModal = true;
 				await invalidateAll();
 				await tick();
@@ -140,6 +141,7 @@
 								onclick={async () => {
 									projectsClicked.add(project.name);
 									await saveProjectsClicked();
+									projectClicked = true;
 								}}>View on GitHub</a
 							>
 							{#if project.homepage !== null && project.homepage !== ""}

@@ -35,4 +35,20 @@
 		font-weight: 600;
 		font-style: normal;
 	}
+	
+	:global(html),
+:global(body) {
+	background-image: url("$lib/images/home-background.png");
+
+	background-image: image-set(
+		url("$lib/images/home-background.avif") type("image/avif"),
+		url("$lib/images/home-background.webp") type("image/webp"),
+		url("$lib/images/home-background.png") type("image/png")
+	);
+	@apply bg-cover bg-fixed bg-center bg-no-repeat;
+	@apply m-0 box-border overflow-x-hidden p-0;
+	height: 100%;
+	width: 100%;
+	overscroll-behavior: none;
+}
 </style>

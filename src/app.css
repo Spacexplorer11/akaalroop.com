@@ -12,21 +12,6 @@
 	}
 }
 
-html,
-body {
-	background-image: url("/images/home-background.png");
-
-	background-image: image-set(
-		url("/images/home-background.avif") type("image/avif"),
-		url("/images/home-background.webp") type("image/webp"),
-		url("/images/home-background.png") type("image/png")
-	);
-	@apply bg-cover bg-fixed bg-center bg-no-repeat;
-	@apply m-0 box-border overflow-x-hidden p-0;
-	height: 100%;
-	width: 100%;
-	overscroll-behavior: none;
-}
 
 @layer base {
 	p {

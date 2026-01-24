@@ -7,7 +7,7 @@
 	let { data } = $props();
 
 	let showModal = $state(false);
-	let hideCarousel = $state(false);
+	let showCarousel = $state(false);
 	let carouselContainer;
 	let carouselContainerElement;
 	let scrollPosition = 0;
@@ -25,7 +25,7 @@
 		window.addEventListener("pointerup", handlePointerUp);
 
 		// Start the smooth scroll animation
-		if (data.projects.length > 0) {
+		if (data.projects.length > 0 && showCarousel) {
 			startSmoothScroll();
 		}
 
@@ -96,6 +96,13 @@
 		isDragging = false;
 		SCROLL_SPEED = 2; // Resume automatic scrolling
 	}
+
+	$effect(() => {
+		if (showCarousel) {
+			carouselContainerElement.style.opacity = 100;
+			startSmoothScroll();
+		}
+	});
 </script>
 
 <svelte:head>
@@ -120,7 +127,7 @@
 	</header>
 	<main class="@container/project-carousel">
 		{#if data.projects.length > 0}
-			<Typewriter delay="3000">
+			<Typewriter delay="2000" on:done={(showCarousel = true)}>
 				<p>
 					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
 						>I've done quite a few projects! Here they are! ↓</span
@@ -235,3 +242,10 @@
 		</div>
 	{/if}
 </div>
+
+<style>
+	#carousel-container {
+		transition: opacity 0.5s ease;
+		opacity: 0;
+	}
+</style>

@@ -45,8 +45,14 @@
 		url("$lib/images/home-background.webp") type("image/webp"),
 		url("$lib/images/home-background.png") type("image/png")
 	);
-	@apply bg-cover bg-fixed bg-center bg-no-repeat;
-	@apply m-0 box-border overflow-x-hidden p-0;
+	background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding: 0;
 	height: 100%;
 	width: 100%;
 	overscroll-behavior: none;

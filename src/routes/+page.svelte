@@ -127,10 +127,19 @@
 	</header>
 	<main class="@container/project-carousel">
 		{#if data.projects.length > 0}
-			<Typewriter delay="2000" on:done={(showCarousel = true)}>
+			<Typewriter
+				delay="2000"
+				on:done={() => {
+					showCarousel = true;
+				}}
+			>
 				<p>
 					<span class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
-						>I've done quite a few projects! Here they are! ↓</span
+						>I've done quite a few projects! Here they are!</span
+					>
+					<span
+						class="inline-block max-w-fit animate-bounce overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal"
+						>↓</span
 					>
 				</p>
 			</Typewriter>

@@ -11,13 +11,6 @@
 		@apply inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] whitespace-normal;
 	}
 }
-@font-face {
-	font-family: "National Park";
-	font-style: normal;
-	font-weight: 600;
-	src: url("/fonts/NationalPark-ExtraBold.woff2") format("woff2");
-	font-display: swap;
-}
 
 html,
 body {
@@ -33,10 +26,6 @@ body {
 	height: 100%;
 	width: 100%;
 	overscroll-behavior: none;
-	font-family: "National Park", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 600;
-	font-style: normal;
 }
 
 @layer base {

@@ -46,7 +46,6 @@
 				<p>{project.description}</p>
 				<p>⭐ {project.stars}</p>
 				<a
-					class="text-orange-500 hover:text-orange-600 hover:underline"
 					href={project.html_url}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -91,10 +90,8 @@
 			>
 				<h2>Thanks!</h2>
 				<p>
-					Thanks for clicking! If you did give it a star, then go to the <a
-						class="text-purple-500 hover:underline"
-						href="/projects">projects page</a
-					> for a bigger reward!
+					Thanks for clicking! If you did give it a star, then go to the <a href="/projects">projects page</a> for a bigger
+					reward!
 				</p>
 				<button
 					class="mt-3 text-red-600"

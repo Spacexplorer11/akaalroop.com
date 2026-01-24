@@ -169,7 +169,7 @@
 					href={randomProject.html_url}
 					aria-label="{randomProject.name} link"
 					title="Link to {randomProject.name}"
-					class="wrap-break-word hover:text-orange-600 hover:underline"
+					class="wrap-break-word"
 					onclick={async () => {
 						projectsClicked.add(randomProject.name);
 						saveProjectsClicked(localStorage);
@@ -179,7 +179,7 @@
 				></span
 			>
 			<button
-				class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 transition-transform select-none hover:scale-110"
+				class="inline-block transform cursor-pointer rounded-lg bg-purple-500 p-2 text-white transition-transform select-none hover:scale-110"
 				onclick={() => {
 					randomProject = rerollRandomProject();
 				}}

@@ -161,7 +161,6 @@
 							<p>{project.description}</p>
 							<p>⭐ {project.stars}</p>
 							<a
-								class="text-orange-500 hover:text-orange-600 hover:underline"
 								href={project.html_url}
 								target="_blank"
 								rel="noopener noreferrer"
@@ -210,9 +209,7 @@
 				<h3>
 					<span
 						class="inline-block max-w-fit overflow-hidden rounded-[0.5em] bg-black/70 p-[0.5em] text-xl whitespace-normal md:text-2xl"
-						>Oh well, then maybe you should check out the <a class="text-purple-500 hover:underline" href="/projects"
-							>projects</a
-						> page!</span
+						>Oh well, then maybe you should check out the <a href="/projects">projects</a> page!</span
 					>
 				</h3>
 			</Typewriter>
@@ -236,10 +233,8 @@
 			>
 				<h2>Thanks!</h2>
 				<p>
-					Thanks for clicking! If you did give it a star, then go to the <a
-						class="text-purple-500 hover:underline"
-						href="/projects">projects page</a
-					> for a bigger reward!
+					Thanks for clicking! If you did give it a star, then go to the <a href="/projects">projects page</a> for a bigger
+					reward!
 				</p>
 				<button
 					class="mt-3 text-red-600"

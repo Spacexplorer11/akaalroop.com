@@ -105,6 +105,10 @@
 
 <svelte:head>
 	<title>Projects</title>
+	<meta
+		name="description"
+		content="Interactively explore my projects and see if you've starred any of them! Lots of secret easter eggs hide in this page to be discovered!"
+	/>
 </svelte:head>
 
 <main class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">

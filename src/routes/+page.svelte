@@ -107,6 +107,10 @@
 
 <svelte:head>
 	<title>Home</title>
+	<meta
+		name="description"
+		content="Home page of akaalroop.com, showing the projects in a carousel and welcoming visitors!"
+	/>
 </svelte:head>
 
 <div class="@container mt-10 mb-10 flex min-h-screen flex-col p-5 text-center text-orange-500">

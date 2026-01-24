@@ -4,6 +4,7 @@
 
 <svelte:head>
 	<title>Sponsors</title>
+	<meta name="description" content="A page to thank and display my kind & awesome sponsors!" />
 </svelte:head>
 
 <main class="@container mx-auto flex flex-col px-4 py-8 text-center">

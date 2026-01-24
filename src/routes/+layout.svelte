@@ -16,8 +16,8 @@
 </script>
 
 <div id="national-park">
-<Navbar {data} />
-{@render children()}
+	<Navbar {data} />
+	{@render children()}
 </div>
 
 <style>

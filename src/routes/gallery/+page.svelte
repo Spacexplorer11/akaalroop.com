@@ -30,6 +30,10 @@
 
 <svelte:head>
 	<title>Gallery</title>
+	<meta
+		name="description"
+		content="A page showing all my projects with up to date statistics in an easy to view grid!"
+	/>
 </svelte:head>
 
 {#if data.projects.length > 0}

@@ -19,6 +19,7 @@
 				await invalidateAll();
 				await tick();
 				document.getElementById("modal-content")?.focus();
+				projectClicked = false;
 			}
 		};
 		document.addEventListener("visibilitychange", handler);

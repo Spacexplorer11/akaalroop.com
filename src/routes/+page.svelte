@@ -35,6 +35,7 @@
 				await invalidateAll();
 				await tick();
 				document.getElementById("modal-content")?.focus();
+				projectClicked = false;
 			}
 		};
 

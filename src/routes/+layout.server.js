@@ -16,22 +16,22 @@ export async function load() {
 							"User-Agent": "akaalroop-website-server"
 						}
 					});
-					if (!res.ok) {
-						console.warn(`Failed to fetch ${fullName}: ${res.status} ${res.statusText}`);
-						return [];
-					}
-					const data = await res.json();
-					return {
-						name: data.name,
-						full_name: data.full_name,
-						description: data.description,
-						html_url: data.html_url,
-						stars: data.stargazers_count,
-						homepage: data.homepage
-					};
-				} catch {
-					return [];
+				if (!res.ok) {
+					console.warn(`Failed to fetch ${fullName}: ${res.status} ${res.statusText}`);
+					return null;
 				}
+				const data = await res.json();
+				return {
+					name: data.name,
+					full_name: data.full_name,
+					description: data.description,
+					html_url: data.html_url,
+					stars: data.stargazers_count,
+					homepage: data.homepage
+				};
+			} catch {
+				return null;
+			}
 			})
 		);
 

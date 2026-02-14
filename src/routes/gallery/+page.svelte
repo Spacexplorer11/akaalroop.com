@@ -77,7 +77,7 @@
 		<div
 			class="@container/modal-overlay fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"
 			role="presentation"
-			onclick={(showModal = false)}
+			onclick={() => (showModal = false)}
 		>
 			<div
 				id="modal-content"
@@ -91,8 +91,13 @@
 			>
 				<h2>Thanks!</h2>
 				<p>
-					Thanks for clicking! If you did give it a star, then go to the <a href="/projects">projects page</a> for a bigger
-					reward!
+					Thanks for clicking! If you did give it a star, then go to the <button
+						class="cursor-pointer text-purple-500 hover:text-purple-600 hover:underline"
+						onclick={() => {
+							showModal = false;
+							goto("/projects");
+						}}>projects page</button
+					> for a bigger reward!
 				</p>
 				<button
 					class="mt-3 text-red-600"

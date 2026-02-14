@@ -1,7 +1,7 @@
 <script>
 	import "../app.css";
 	import { Navbar } from "$lib";
-	import { onMount } from "svelte";
+	import { onMount, setContext } from "svelte";
 	import favicon from "$lib/favicons/favicon.ico";
 	import favicon_svg from "$lib/favicons/favicon.svg";
 	import apple_touch_icon from "$lib/favicons/apple-touch-icon.png";
@@ -10,6 +10,8 @@
 	import { loadProjectsClicked } from "$lib/projects.svelte.js";
 
 	let { data, children } = $props();
+	const initialProjects = data.projects; // Initial state obvs so ignore the stupid warning
+	setContext("initialProjects", initialProjects);
 
 	onMount(async () => {
 		try {

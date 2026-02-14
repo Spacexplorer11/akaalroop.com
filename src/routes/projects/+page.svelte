@@ -1,7 +1,8 @@
 <script>
 	import Typewriter from "svelte-typewriter";
 	import { projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
-	import { onMount } from "svelte";
+	import { getContext, onMount } from "svelte";
+	import { invalidateAll } from "$app/navigation";
 
 	let { data } = $props();
 
@@ -12,6 +13,7 @@
 	let sentEmail = $state(false);
 	let sentEmailBefore = $state(false);
 	let code = $state("");
+	const initialProjects = getContext("initialProjects");
 	const anyProjectClicked = projectsClicked.size > 0;
 
 	let randomProject = $state(rerollRandomProject());
@@ -36,10 +38,9 @@
 
 	async function starCheck() {
 		checkingInProgress = true;
+		await invalidateAll();
 		try {
-			const initialProjects = data.projects;
-			const res = await fetch("https://api.akaalroop.com/projects");
-			const newlyFetchedProjects = await res.json();
+			const newlyFetchedProjects = data.projects;
 
 			starredProjects = newlyFetchedProjects.filter((newProj) => {
 				const oldProj = initialProjects.find((p) => p.name === newProj.name);

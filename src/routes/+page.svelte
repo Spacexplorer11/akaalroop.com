@@ -109,6 +109,9 @@
 
 	$effect(() => {
 		if (showCarousel) {
+			if (animationFrameId) {
+				return;
+			} // Prevent multiple animations
 			carouselContainerElement.style.opacity = 100;
 			startSmoothScroll();
 		}

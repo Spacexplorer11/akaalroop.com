@@ -77,7 +77,7 @@
 		<div
 			class="@container/modal-overlay fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black/40 backdrop-blur-sm"
 			role="presentation"
-			onclick={(showModal = false)}
+			onclick={() => (showModal = false)}
 		>
 			<div
 				id="modal-content"

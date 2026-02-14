@@ -87,10 +87,19 @@
 	function handlePointerMove(e) {
 		if (!isDragging) return;
 		const delta = e.clientX - startX;
+		const singleSetWidth = carouselContainer.scrollWidth / 2;
+
+		scrollPosition = scrollStart + delta;
+
 		if (delta > 1 || delta < -1) {
-			scrollPosition = scrollStart + delta;
-			carouselContainer.style.transform = `translateX(${scrollPosition}px)`;
+			if (scrollPosition > 0) {
+				scrollPosition -= singleSetWidth;
+			} else if (scrollPosition < -singleSetWidth) {
+				scrollPosition += singleSetWidth;
+			}
 		}
+
+		carouselContainer.style.transform = `translateX(${scrollPosition}px)`;
 	}
 
 	function handlePointerUp() {
@@ -100,6 +109,9 @@
 
 	$effect(() => {
 		if (showCarousel) {
+			if (animationFrameId) {
+				return;
+			} // Prevent multiple animations
 			carouselContainerElement.style.opacity = 100;
 			startSmoothScroll();
 		}

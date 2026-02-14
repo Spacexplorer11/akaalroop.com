@@ -38,7 +38,6 @@
 
 	async function starCheck() {
 		checkingInProgress = true;
-		console.log(initialProjects);
 		await invalidateAll();
 		try {
 			const newlyFetchedProjects = data.projects;

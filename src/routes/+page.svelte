@@ -194,7 +194,7 @@
 									}}
 									title="Open {project.homepage} in a new tab"
 								>
-									Visit website!
+									Visit demo!
 								</button>
 							{/if}
 						</div>

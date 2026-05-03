@@ -2,7 +2,7 @@ import { GITHUB_PAT } from "$env/static/private";
 export async function load() {
 	try {
 		const repos =
-			"akaalroop.com,boombox,cloudcat,justcount,lets-do-it,mcrecipes,meow_meals,rust-is-the-best,shy-bridge,space_dodge,supercalculator,trafalgar-to-trenches,totp-generator,winter-of-making-minecraft-mod,word_ban,wwf-support";
+			"akaalroop.com,boombox,cloudcat,justcount,lets-do-it,mcrecipes,meow_meals,rust-is-the-best,shy-bridge,space_dodge,supercalculator,trafalgar-to-trenches,totp-generator,winter-of-making-minecraft-mod,word_ban,word-to-number,wwf-support";
 
 		const requestedRepos = repos.split(",").map((name) => `spacexplorer11/${name}`);
 

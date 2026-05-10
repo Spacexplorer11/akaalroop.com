@@ -58,12 +58,12 @@
 				url("$lib/images/home-background-640.webp") type("image/webp"),
 				url("$lib/images/home-background-640.jpg")  type("image/jpeg")
 		);
-		background-attachment: fixed;
+		background-attachment: scroll;
 	}
 
-	@media (max-width: 768px) {
+	@media (min-width: 769px) {
 		:global(html), :global(body) {
-			background-attachment: scroll;
+			background-attachment: fixed;
 		}
 	}
 

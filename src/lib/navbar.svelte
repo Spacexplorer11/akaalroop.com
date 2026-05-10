@@ -29,7 +29,7 @@
 					style="border: 0; border-radius: 6px;"
 				></iframe>
 			{/if}
-			<a href="https://www.buymeacoffee.com/spacexplorer11" target="_blank" class="pointer">
+			<a href="https://www.buymeacoffee.com/spacexplorer11" target="_blank" class="pointer" rel="noopener noreferrer">
 				<img
 					src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
 					alt="Buy Me A Coffee"

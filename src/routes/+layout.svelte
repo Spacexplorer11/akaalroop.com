@@ -24,7 +24,7 @@
 
 <svelte:head>
 	<link href={site_manifest} rel="manifest" />
-	<link href={favicon_96} rel="icon" sizes="96x96" type="image/jpg" />
+	<link href={favicon_96} rel="icon" sizes="96x96" type="image/png" />
 	<link href={favicon_svg} rel="icon" type="image/svg+xml" />
 	<link href={favicon} rel="shortcut icon" />
 	<link href={apple_touch_icon} rel="apple-touch-icon" sizes="180x180" />
@@ -56,7 +56,7 @@
 		background-image: image-set(
 				url("$lib/images/home-background-640.avif") type("image/avif"),
 				url("$lib/images/home-background-640.webp") type("image/webp"),
-				url("$lib/images/home-background-640.jpg")  type("image/jpg")
+				url("$lib/images/home-background-640.jpg")  type("image/jpeg")
 		);
 		background-attachment: fixed;
 	}
@@ -72,7 +72,7 @@
 			background-image: image-set(
 					url("$lib/images/home-background-1280.avif") type("image/avif"),
 					url("$lib/images/home-background-1280.webp") type("image/webp"),
-					url("$lib/images/home-background-1280.jpg")  type("image/jpg")
+					url("$lib/images/home-background-1280.jpg")  type("image/jpeg")
 			);
 		}
 	}
@@ -82,7 +82,7 @@
 			background-image: image-set(
 					url("$lib/images/home-background-1920.avif") type("image/avif"),
 					url("$lib/images/home-background-1920.webp") type("image/webp"),
-					url("$lib/images/home-background-1920.jpg")  type("image/jpg")
+					url("$lib/images/home-background-1920.jpg")  type("image/jpeg")
 			);
 		}
 	}
@@ -92,7 +92,7 @@
 			background-image: image-set(
 					url("$lib/images/home-background-2560.avif") type("image/avif"),
 					url("$lib/images/home-background-2560.webp") type("image/webp"),
-					url("$lib/images/home-background-2560.jpg") type("image/jpg")
+					url("$lib/images/home-background-2560.jpg") type("image/jpeg")
 			);
 		}
 	}
@@ -102,7 +102,7 @@
 			background-image: image-set(
 					url("$lib/images/home-background.avif") type("image/avif"),
 					url("$lib/images/home-background.webp") type("image/webp"),
-					url("$lib/images/home-background.jpg") type("image/jpg")
+					url("$lib/images/home-background.jpg") type("image/jpeg")
 			);
 		}
 	}

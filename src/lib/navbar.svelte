@@ -1,5 +1,5 @@
 <script>
-	import {onMount} from "svelte";
+	import { onMount } from "svelte";
 
 	let { data } = $props();
 	let showSponsors = $state(false);
@@ -9,7 +9,9 @@
 	});
 </script>
 
-<nav class="@container relative mr-0 ml-0 flex w-full items-center justify-between bg-black/70 p-3 text-white md:flex-row md:p-10">
+<nav
+	class="@container relative mr-0 ml-0 flex w-full items-center justify-between bg-black/70 p-3 text-white md:flex-row md:p-10"
+>
 	<div class="flex w-full flex-wrap items-center space-x-5 gap-y-4 md:space-x-16 lg:space-x-24">
 		<a class="navbar-item" href="/">Home</a>
 		<a class="navbar-item" href="/projects">Projects</a>
@@ -20,21 +22,21 @@
 		<div id="sponsor-buttons" class="flex flex-row items-center space-x-2 lg:ml-auto">
 			{#if showSponsors}
 				<iframe
-						src="https://github.com/sponsors/Spacexplorer11/button"
-						title="Sponsor Spacexplorer11"
-						height="32"
-						width="114"
-						style="border: 0; border-radius: 6px;"
+					src="https://github.com/sponsors/Spacexplorer11/button"
+					title="Sponsor Spacexplorer11"
+					height="32"
+					width="114"
+					style="border: 0; border-radius: 6px;"
 				></iframe>
 			{/if}
 			<a href="https://www.buymeacoffee.com/spacexplorer11" target="_blank" class="pointer">
 				<img
-						src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
-						alt="Buy Me A Coffee"
-						loading="lazy"
-						width="217"
-						height="60"
-						style="height: 60px !important; width: 217px !important;"
+					src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+					alt="Buy Me A Coffee"
+					loading="lazy"
+					width="217"
+					height="60"
+					style="height: 60px !important; width: 217px !important;"
 				/>
 			</a>
 		</div>

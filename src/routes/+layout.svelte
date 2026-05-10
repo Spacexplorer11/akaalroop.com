@@ -31,12 +31,7 @@
 </svelte:head>
 
 <div id="national-park">
-	<enhanced:img
-			src="$lib/images/home-background.png"
-			alt=""
-			id="home-background"
-			sizes="100vw"
-	/>
+	<enhanced:img src="$lib/images/home-background.png" alt="" id="home-background" sizes="100vw" />
 	<Navbar {data} />
 	{@render children()}
 </div>
@@ -66,7 +61,8 @@
 		z-index: -1;
 	}
 
-	:global(html), :global(body) {
+	:global(html),
+	:global(body) {
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;

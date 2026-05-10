@@ -1,5 +1,12 @@
 <script>
+	import { onMount } from "svelte";
+
 	let { data } = $props();
+	let showSponsors = $state(false);
+
+	onMount(() => {
+		showSponsors = true;
+	});
 </script>
 
 <nav
@@ -12,23 +19,25 @@
 			<a class="navbar-item" href="/gallery">Gallery</a>
 		{/if}
 		<a class="navbar-item" href="/sponsors">Sponsors</a>
-		<!--	<a href="/about">About</a> -->
-		<!--	<a href="/contact">Contact</a> -->
 		<div id="sponsor-buttons" class="flex flex-row items-center space-x-2 lg:ml-auto">
-			<iframe
-				src="https://github.com/sponsors/Spacexplorer11/button"
-				title="Sponsor Spacexplorer11"
-				height="32"
-				width="114"
-				style="border: 0; border-radius: 6px;"
-			></iframe>
-			<a href="https://www.buymeacoffee.com/spacexplorer11" target="_blank" class="pointer"
-				><img
+			{#if showSponsors}
+				<iframe
+					src="https://github.com/sponsors/Spacexplorer11/button"
+					title="Sponsor Spacexplorer11"
+					height="32"
+					width="114"
+					style="border: 0; border-radius: 6px;"
+				></iframe>
+			{/if}
+			<a href="https://www.buymeacoffee.com/spacexplorer11" target="_blank" class="pointer" rel="noopener noreferrer">
+				<img
 					src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
 					alt="Buy Me A Coffee"
-					style="height: 60px !important;width: 217px !important;"
-				/></a
-			>
+					width="217"
+					height="60"
+					style="height: 60px !important; width: 217px !important;"
+				/>
+			</a>
 		</div>
 	</div>
 </nav>

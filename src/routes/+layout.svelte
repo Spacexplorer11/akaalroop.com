@@ -31,6 +31,12 @@
 </svelte:head>
 
 <div id="national-park">
+	<enhanced:img
+			src="$lib/images/home-background.png"
+			alt=""
+			id="home-background"
+			sizes="100vw"
+	/>
 	<Navbar {data} />
 	{@render children()}
 </div>
@@ -51,59 +57,25 @@
 		font-style: normal;
 	}
 
+	#home-background {
+		position: fixed;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: -1;
+	}
+
 	:global(html), :global(body) {
-		/* mobile first — small image */
-		background-image: image-set(
-				url("$lib/images/home-background-640.avif") type("image/avif"),
-				url("$lib/images/home-background-640.webp") type("image/webp"),
-				url("$lib/images/home-background-640.jpg")  type("image/jpeg")
-		);
-		background-attachment: scroll;
-	}
-
-	@media (min-width: 769px) {
-		:global(html), :global(body) {
-			background-attachment: fixed;
-		}
-	}
-
-	@media (min-width: 768px) {
-		:global(html), :global(body) {
-			background-image: image-set(
-					url("$lib/images/home-background-1280.avif") type("image/avif"),
-					url("$lib/images/home-background-1280.webp") type("image/webp"),
-					url("$lib/images/home-background-1280.jpg")  type("image/jpeg")
-			);
-		}
-	}
-
-	@media (min-width: 1280px) {
-		:global(html), :global(body) {
-			background-image: image-set(
-					url("$lib/images/home-background-1920.avif") type("image/avif"),
-					url("$lib/images/home-background-1920.webp") type("image/webp"),
-					url("$lib/images/home-background-1920.jpg")  type("image/jpeg")
-			);
-		}
-	}
-
-	@media (min-width: 1920px) {
-		:global(html), :global(body) {
-			background-image: image-set(
-					url("$lib/images/home-background-2560.avif") type("image/avif"),
-					url("$lib/images/home-background-2560.webp") type("image/webp"),
-					url("$lib/images/home-background-2560.jpg") type("image/jpeg")
-			);
-		}
-	}
-
-	@media (min-width: 2560px) {
-		:global(html), :global(body) {
-			background-image: image-set(
-					url("$lib/images/home-background.avif") type("image/avif"),
-					url("$lib/images/home-background.webp") type("image/webp"),
-					url("$lib/images/home-background.jpg") type("image/jpeg")
-			);
-		}
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		margin: 0;
+		box-sizing: border-box;
+		overflow-x: hidden;
+		padding: 0;
+		height: 100%;
+		width: 100%;
+		overscroll-behavior: none;
 	}
 </style>

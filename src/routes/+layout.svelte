@@ -24,7 +24,7 @@
 
 <svelte:head>
 	<link href={site_manifest} rel="manifest" />
-	<link href={favicon_96} rel="icon" sizes="96x96" type="image/jpg" />
+	<link href={favicon_96} rel="icon" sizes="96x96" type="image/png" />
 	<link href={favicon_svg} rel="icon" type="image/svg+xml" />
 	<link href={favicon} rel="shortcut icon" />
 	<link href={apple_touch_icon} rel="apple-touch-icon" sizes="180x180" />

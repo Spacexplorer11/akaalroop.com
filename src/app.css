@@ -28,3 +28,17 @@
 		@apply text-purple-500 hover:text-purple-600 hover:underline;
 	}
 }
+
+html, body {
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin: 0;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	overscroll-behavior: none;
+}

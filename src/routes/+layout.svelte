@@ -4,8 +4,8 @@
 	import { onMount, setContext } from "svelte";
 	import favicon from "$lib/favicons/favicon.ico";
 	import favicon_svg from "$lib/favicons/favicon.svg";
-	import apple_touch_icon from "$lib/favicons/apple-touch-icon.png";
-	import favicon_96 from "$lib/favicons/favicon-96x96.png";
+	import apple_touch_icon from "$lib/favicons/apple-touch-icon.jpg";
+	import favicon_96 from "$lib/favicons/favicon-96x96.jpg";
 	import site_manifest from "$lib/favicons/site.webmanifest";
 	import { loadProjectsClicked } from "$lib/projects.svelte.js";
 
@@ -24,7 +24,7 @@
 
 <svelte:head>
 	<link href={site_manifest} rel="manifest" />
-	<link href={favicon_96} rel="icon" sizes="96x96" type="image/png" />
+	<link href={favicon_96} rel="icon" sizes="96x96" type="image/jpg" />
 	<link href={favicon_svg} rel="icon" type="image/svg+xml" />
 	<link href={favicon} rel="shortcut icon" />
 	<link href={apple_touch_icon} rel="apple-touch-icon" sizes="180x180" />
@@ -51,25 +51,52 @@
 		font-style: normal;
 	}
 
-	:global(html),
-	:global(body) {
-		background-image: url("$lib/images/home-background.png");
-
+	:global(html), :global(body) {
+		/* mobile first — small image */
 		background-image: image-set(
-			url("$lib/images/home-background.avif") type("image/avif"),
-			url("$lib/images/home-background.webp") type("image/webp"),
-			url("$lib/images/home-background.png") type("image/png")
+				url("$lib/images/home-background-640.avif") type("image/avif"),
+				url("$lib/images/home-background-640.webp") type("image/webp"),
+				url("$lib/images/home-background-640.jpg")  type("image/jpg")
 		);
-		background-size: cover;
-		background-attachment: fixed;
-		background-position: center;
-		background-repeat: no-repeat;
-		margin: 0;
-		box-sizing: border-box;
-		overflow-x: hidden;
-		padding: 0;
-		height: 100%;
-		width: 100%;
-		overscroll-behavior: none;
+	}
+
+	@media (min-width: 768px) {
+		:global(html), :global(body) {
+			background-image: image-set(
+					url("$lib/images/home-background-1280.avif") type("image/avif"),
+					url("$lib/images/home-background-1280.webp") type("image/webp"),
+					url("$lib/images/home-background-1280.jpg")  type("image/jpg")
+			);
+		}
+	}
+
+	@media (min-width: 1280px) {
+		:global(html), :global(body) {
+			background-image: image-set(
+					url("$lib/images/home-background-1920.avif") type("image/avif"),
+					url("$lib/images/home-background-1920.webp") type("image/webp"),
+					url("$lib/images/home-background-1920.jpg")  type("image/jpg")
+			);
+		}
+	}
+
+	@media (min-width: 1920px) {
+		:global(html), :global(body) {
+			background-image: image-set(
+					url("$lib/images/home-background-2560.avif") type("image/avif"),
+					url("$lib/images/home-background-2560.webp") type("image/webp"),
+					url("$lib/images/home-background-2560.jpg") type("image/jpg")
+			);
+		}
+	}
+
+	@media (min-width: 2560px) {
+		:global(html), :global(body) {
+			background-image: image-set(
+					url("$lib/images/home-background.avif") type("image/avif"),
+					url("$lib/images/home-background.webp") type("image/webp"),
+					url("$lib/images/home-background.jpg") type("image/jpg")
+			);
+		}
 	}
 </style>

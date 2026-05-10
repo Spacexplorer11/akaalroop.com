@@ -4,8 +4,8 @@
 	import { onMount, setContext } from "svelte";
 	import favicon from "$lib/favicons/favicon.ico";
 	import favicon_svg from "$lib/favicons/favicon.svg";
-	import apple_touch_icon from "$lib/favicons/apple-touch-icon.jpg";
-	import favicon_96 from "$lib/favicons/favicon-96x96.jpg";
+	import apple_touch_icon from "$lib/favicons/apple-touch-icon.png";
+	import favicon_96 from "$lib/favicons/favicon-96x96.png";
 	import site_manifest from "$lib/favicons/site.webmanifest";
 	import { loadProjectsClicked } from "$lib/projects.svelte.js";
 

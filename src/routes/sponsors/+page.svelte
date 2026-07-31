@@ -12,7 +12,7 @@
 		<h1 class="text-orange-500"><span class="text-bg">My Amazing Sponsors</span></h1>
 		<h2 class="text-orange-500">
 			<span class="text-bg"
-				>First of all, I'd like to thank my first sponsors, my parents for everything they have ever done for me! ❤️
+				>First of all, I'd like to thank my first sponsors: my parents, for everything they have ever done for me! ❤️
 			</span>
 		</h2>
 	</Typewriter>
@@ -23,6 +23,12 @@
 		<div class="mb-5 flex-col text-orange-500">
 			<h1 class="mb-3"><span class="text-bg">Bronze (£0-£50)</span></h1>
 			<p class="text-bg mx-auto">Mr Walsh - £5</p>
+		</div>
+		<div class="mb-5 flex-col text-orange-500">
+			<h1 class="mb-3"><span class="text-bg">Special Mentions</span></h1>
+			<p class="text-bg mx-auto">
+				Mark Zhdanov - For testing my projects, reporting bugs, and taking an interest in my work. Thank you so much ❤️
+			</p>
 		</div>
 	</Typewriter>
 </main>

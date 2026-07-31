@@ -3,7 +3,6 @@
 ![Hackatime](https://hackatime-badge.hackclub.com/U08D22QNUVD/akaalroop.com)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/spacexplorer11/akaalroop.com?color=red)
 
-
 Some may call this a portfolio, but I'd rather call it my fun zone because it's barely got any info about me, but more easter eggs and cool things like:
 
 - Live updating stats of my repos

@@ -31,6 +31,7 @@
 </svelte:head>
 
 <div id="national-park">
+	<enhanced:img src="$lib/images/home-background.png" alt="" id="home-background" sizes="100vw" />
 	<Navbar {data} />
 	{@render children()}
 </div>
@@ -51,17 +52,18 @@
 		font-style: normal;
 	}
 
+	#home-background {
+		position: fixed;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: -1;
+	}
+
 	:global(html),
 	:global(body) {
-		background-image: url("$lib/images/home-background.png");
-
-		background-image: image-set(
-			url("$lib/images/home-background.avif") type("image/avif"),
-			url("$lib/images/home-background.webp") type("image/webp"),
-			url("$lib/images/home-background.png") type("image/png")
-		);
 		background-size: cover;
-		background-attachment: fixed;
 		background-position: center;
 		background-repeat: no-repeat;
 		margin: 0;

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akaalroop.com/sitemap.xml

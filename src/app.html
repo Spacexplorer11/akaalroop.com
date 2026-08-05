@@ -2,16 +2,64 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta content="Akaalroop" name="apple-mobile-web-app-title" />
-		<meta content="Akaalroop's portfolio" name="description" />
-		<meta content="Akaalroop" name="author" />
-		<meta content="Akaalroop, portfolio, web developer, software engineer" name="keywords" />
-		<meta content="width=device-width, initial-scale=1" name="viewport" />
-		<link rel="preconnect" href="https://api.akaalroop.com" />
-		<link rel="preload" as="image" href="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" />
-		<title>Akaalroop's portfolio</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<title>Akaalroop - Developer Portfolio</title>
+
+		<meta
+			name="description"
+			content="Akaalroop's portfolio showcasing web development projects, software engineering work, and includes hidden easter eggs!"
+		/>
+
+		<meta name="author" content="Akaalroop" />
+
+		<!-- Search engine behaviour -->
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href="https://akaalroop.com/" />
+
+		<!-- Browser / OS appearance -->
+		<meta name="theme-color" content="#08003E" />
+		<meta name="apple-mobile-web-app-title" content="Akaalroop" />
+
+		<!-- Open Graph (Discord, LinkedIn, Facebook, etc.) -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Akaalroop - Developer Portfolio" />
+		<meta property="og:description" content="Projects, software development work and hidden easter eggs by Akaalroop" />
+		<meta property="og:url" content="https://akaalroop.com/" />
+		<meta property="og:image" content="https://akaalroop.com/og-image.webp" />
+
+		<!-- Twitter/X cards -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Akaalroop - Developer Portfolio" />
+		<meta
+			name="twitter:description"
+			content="Projects, software development work and hidden easter eggs by Akaalroop"
+		/>
+		<meta name="twitter:image" content="https://akaalroop.com/og-image.webp" />
+
+		<!-- Favicons -->
+		<link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+		<link rel="manifest" href="/site.webmanifest" />
+
+		<!-- Structured data -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "Akaalroop",
+				"url": "https://akaalroop.com/",
+				"jobTitle": "Software Developer",
+				"sameAs": ["https://github.com/spacexplorer11"]
+			}
+		</script>
+
 		%sveltekit.head%
 	</head>
+
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>

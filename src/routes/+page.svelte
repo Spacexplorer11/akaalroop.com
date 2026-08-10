@@ -177,7 +177,7 @@
 								href={project.html_url}
 								target="_blank"
 								rel="noopener noreferrer"
-								title="Go to {project.name} on GitHub"
+								title="Visit {project.name} on GitHub"
 								onclick={async () => {
 									projectsClicked.add(project.name);
 									saveProjectsClicked(localStorage);

@@ -1,5 +1,6 @@
 <script>
 	import Typewriter from "svelte-typewriter";
+	import { projectsClicked, saveProjectsClicked } from "$lib/projects.svelte.js";
 </script>
 
 <svelte:head>
@@ -28,6 +29,18 @@
 			<h1 class="mb-3"><span class="text-bg">Special Mentions</span></h1>
 			<p class="text-bg mx-auto">
 				Mark Zhdanov - For testing my projects, reporting bugs, and taking an interest in my work. Thank you so much ❤️
+			</p>
+			<p class="text-bg mx-auto">
+				Nova - For making a whole Web API in Java just for me, because I asked her. Her API helped me a LOT in my <a
+					href="https://github.com/spacexplorer11/MCBot"
+					target="_blank"
+					rel="noopener noreferrer"
+					title="Visit MCBot on GitHub"
+					onclick={async () => {
+						projectsClicked.add("mcbot");
+						saveProjectsClicked(localStorage);
+					}}>MCBot</a
+				> project! Thank you so much ❤️
 			</p>
 		</div>
 	</Typewriter>
